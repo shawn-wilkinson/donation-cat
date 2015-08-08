@@ -1,6 +1,13 @@
 <h1><%= @charity.name %></h1>
 <p> <%= @charity.description %></p>
 <p><%= @charity.name%>'s Wishlist:</p>
+
+<% if current_user.charities.include?(@charity) %>
+  <p><%= link_to "Un-Star This Charity", star_path(@charity) %></p>
+<% else %>
+  <p><%= link_to "Star This Charity", star_path(@charity) %></p>
+<% end %>
+
 <ul>
   <% @wishlist.items.each do |item| %>
     <li><%= item.name %></li>
