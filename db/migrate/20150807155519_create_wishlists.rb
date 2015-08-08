@@ -4,6 +4,7 @@ class CreateWishlists < ActiveRecord::Migration
       t.references :charity
       t.string :name
       t.string :link
+      t.string :original_link
 
       t.timestamps null: false
     end

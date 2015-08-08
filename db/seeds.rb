@@ -33,7 +33,7 @@ test_charity = Charity.create(name:"Lucky Dog Animal Rescue", description: "Luck
 test_category = Category.find_by(name: "Animal Advocacy")
 test_category.charities << test_charity
 
-test_charity.wishlists.create!(name: "Our Wishlist", link: "http://www.amazon.com/gp/registry/wishlist/ref=cm_wl_act_print_v?ie=UTF8&disableNav=1&filter=all&id=3AW1BUYSY69G5&items-per-page=200&layout=standard-print&sort=date-added&visitor-view=1" )
+test_charity.wishlists.create!(name: "Our Wishlist", link: "http://www.amazon.com/gp/registry/wishlist/ref=cm_wl_act_print_v?ie=UTF8&disableNav=1&filter=all&id=3AW1BUYSY69G5&items-per-page=200&layout=standard-print&sort=date-added&visitor-view=1", original_link: "http://www.amazon.com/gp/registry/wishlist/3AW1BUYSY69G5" )
 
 
 users_array = []

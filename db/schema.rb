@@ -90,8 +90,9 @@ ActiveRecord::Schema.define(version: 20150807190457) do
     t.integer  "charity_id"
     t.string   "name"
     t.string   "link"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "original_link"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end
