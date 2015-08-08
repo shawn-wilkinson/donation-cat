@@ -11,6 +11,7 @@ class Wishlist < ActiveRecord::Base
 			if link
 				
 				doc = Nokogiri::HTML(open(link))
+			
 				track_row = doc.css("tr")
 				modified_track_row = track_row[3..-1]
 				modified_track_row.each do |track_row|
