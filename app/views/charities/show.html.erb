@@ -9,7 +9,14 @@
 <% end %>
 
 <ul>
-  <% @wishlist.items.each do |item| %>
-    <li><%= item.name %></li>
-  <% end %>
+
+	<% @wishlist.items.each do |item|  %>
+<p><img src="<%= item.picture_url %>"><a href="<%= @wishlist.link %>"><%= item.name %></a>Price: <%= item.current_price %>    Priority: <%= item.priority %>    Requested Quantity: <%= item.qty_requested %>    Quanity Received: <%= item.qty_received %></p><br>
+
+<% end %>
+
+
+
+
+ 
 <ul>
