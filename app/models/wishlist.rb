@@ -11,17 +11,7 @@ class Wishlist < ActiveRecord::Base
 			if link
 				
 				doc = Nokogiri::HTML(open(link))
-				# File.open('heythere.xml', 'w') { |f| f.print(doc) }
-
-				# view_link = doc.css(".a-size-small").text
-				# p "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-				# p "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-				# p "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-				# p "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-
-				# p view_link
-
-
+			
 				track_row = doc.css("tr")
 				modified_track_row = track_row[3..-1]
 				modified_track_row.each do |track_row|
