@@ -1,0 +1,8 @@
+<h1><%= @charity.name %></h1>
+<p> <%= @charity.description %></p>
+<p><%= @charity.name%>'s Wishlist:</p>
+<ul>
+  <% @wishlist.items.each do |item| %>
+    <li><%= item.name %></li>
+  <% end %>
+<ul>
