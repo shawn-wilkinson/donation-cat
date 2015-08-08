@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 20150807190457) do
     t.integer  "creation_price"
     t.integer  "current_price"
     t.string   "priority"
+    t.integer  "qty_requested"
+    t.integer  "qty_received"
     t.string   "rating"
     t.integer  "number_ratings"
     t.string   "comments"
@@ -65,9 +67,9 @@ ActiveRecord::Schema.define(version: 20150807190457) do
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "email"
-    t.string   "password_hash"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "users_charities", force: :cascade do |t|
