@@ -59,7 +59,7 @@
 <row name="description" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
-<row name="contact_person" null="1" autoincrement="0">
+<row name="contact_name" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <row name="contact_email" null="1" autoincrement="0">
