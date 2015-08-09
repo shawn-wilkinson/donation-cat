@@ -1,6 +1,16 @@
-<h1> <%= @category.name %> </h1>
-<ul>
-  <% @charities.each do |charity| %>
-    <li> <%= link_to charity.name, charity_path(charity) %></li>
-  <% end %>
-</ul>
+ <div class="ui vertical stripe segment">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="center aligned column">
+        	<h1> <%= @category.name %> </h1>
+			<ul>
+			  <% @charities.each do |charity| %>
+			    <li> <%= link_to charity.name, charity_path(charity) %></li>
+			  <% end %>
+			</ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
