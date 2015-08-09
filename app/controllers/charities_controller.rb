@@ -19,7 +19,10 @@ class CharitiesController < ApplicationController
   def show
     @charity = Charity.find(params[:id])
     @wishlist = @charity.wishlists.first
+
     @wishlist.update_wishlist if @wishlist
+    current_user.visit_charity(@charity)
+
   end
 
   def star
@@ -29,14 +32,20 @@ class CharitiesController < ApplicationController
       users_charity.destroy
     else
       current_user.charities << @charity
+      current_user.save
     end
     redirect_to charity_path(@charity)
   end
 
+<<<<<<< HEAD
   private
 
   def charity_params
     params.require(:charity).permit(:name, :description, :zip_code, :contact_name, :contact_email, :contact_phone, :password_hash)
+=======
+  def recently_visited
+
+>>>>>>> 3757aa1184966b4390484b2f4042a80a3c423459
   end
 
 end
