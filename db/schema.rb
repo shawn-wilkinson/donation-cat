@@ -33,13 +33,16 @@ ActiveRecord::Schema.define(version: 20150808232258) do
   create_table "charities", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.string   "zip_code"
     t.string   "contact_name"
     t.string   "contact_email"
     t.string   "contact_phone"
+    t.string   "mailing_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
     t.string   "password_hash"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "downcase_name"
   end
 

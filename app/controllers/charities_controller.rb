@@ -5,6 +5,8 @@ class CharitiesController < ApplicationController
   end
 
   def create
+
+
     @charity = Charity.new(charity_params)
     if @charity.save
       redirect_to charity_path(@charity)
