@@ -38,7 +38,9 @@ test_charity.wishlists.create!(name: "Our Wishlist", link: "http://www.amazon.co
 
 users_array = []
 10.times do
-  us = User.create(username:Faker::Name.name,email:Faker::Internet.email,password:"password")
+
+  us = User.create(username:Faker::Name.name,email:Faker::Internet.email, password:"password")
+
   us.categories << cat.sample(2)
   us.charities << char.sample(2)
   users_array << us

@@ -1,11 +1,23 @@
-<h1>Login</h1>
 
-  <%= form_tag '/login' do %>
-  Username: <%= text_field_tag :name %>
-  Password: <%= password_field_tag :password %>
-  <%= submit_tag "Submit" %>
+  <div class="ui vertical stripe segment">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="center aligned column">
+           <h1>Login</h1>
 
-<% end %>
-<% if @error %>
-  <p><%= @error %></p>
-<% end %>
+			  <%= form_tag '/login' do %>
+			  Username: <%= text_field_tag :username %>
+			  Password: <%= password_field_tag :password %>
+			  <%= submit_tag "Submit" %>
+
+			<% end %>
+			<% if @error %>
+			  <p><%= @error %></p>
+			<% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
