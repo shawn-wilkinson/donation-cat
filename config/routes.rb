@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+
   root 'welcome#index'
+
 
   resources :categories
 
@@ -13,14 +15,12 @@ Rails.application.routes.draw do
   #Custom routes for search
   resources :search, only: [:index]
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  get 'users/login' => 'users#login'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
 
-  # You can have the root of your site routed with "root"
-
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  get 'charities/id/:star' => 'charities#star', as: :star
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

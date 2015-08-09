@@ -69,9 +69,9 @@ ActiveRecord::Schema.define(version: 20150808232258) do
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "email"
-    t.string   "password_hash"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "users_charities", force: :cascade do |t|
@@ -92,8 +92,9 @@ ActiveRecord::Schema.define(version: 20150808232258) do
     t.integer  "charity_id"
     t.string   "name"
     t.string   "link"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "original_link"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end

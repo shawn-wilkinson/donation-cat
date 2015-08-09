@@ -11,4 +11,5 @@ class Charity < ActiveRecord::Base
   def add_downcase_name
     self.downcase_name = name.downcase
   end
+
 end
