@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
 
   def visit_charity(charity)
     self.visited_charities << charity
+    self.save
   end
 
   def password=(password)

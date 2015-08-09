@@ -14,6 +14,7 @@ class CharitiesController < ApplicationController
       users_charity.destroy
     else
       current_user.charities << @charity
+      current_user.save
     end
     redirect_to charity_path(@charity)
   end
