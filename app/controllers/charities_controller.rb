@@ -4,6 +4,7 @@ class CharitiesController < ApplicationController
     @charity = Charity.find(params[:id])
     @wishlist = @charity.wishlists.first
     @wishlist.update_wishlist
+    current_user.visit_charity(@charity)
   end
 
   def star

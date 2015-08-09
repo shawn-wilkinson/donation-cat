@@ -12,6 +12,13 @@ class User < ActiveRecord::Base
   has_secure_password
 
 
+  def recently_visited_charities
+    self.visited_charities.order('created_at DESC').uniq.limit(5)
+  end
+
+  def visit_charity(charity)
+    self.visited_charities << charity
+  end
 
   def password=(password)
     self.password_digest = BCrypt::Password.create(password)
