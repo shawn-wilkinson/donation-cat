@@ -17,7 +17,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-
+    if current_user == @user
+      @starred_charities = current_user.charities
+      @visited_charities = current_user.recently_visited_charities
+      @categories = current_user.categories
+    else
+      redirect_to root_path
+    end
   end
 
   private
