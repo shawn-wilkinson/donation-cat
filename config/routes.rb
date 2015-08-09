@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  get 'charities/id/:star' => 'charities#star', as: :star
+  get 'charities/:id/star' => 'charities#star', as: :star
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
