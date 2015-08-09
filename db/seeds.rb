@@ -33,12 +33,16 @@ test_charity = Charity.create(name:"Lucky Dog Animal Rescue", description: "Luck
 test_category = Category.find_by(name: "Animal Advocacy")
 test_category.charities << test_charity
 
-test_charity.wishlists.create!(name: "Our Wishlist", link: "http://www.amazon.com/gp/registry/wishlist/ref=cm_wl_act_print_v?ie=UTF8&disableNav=1&filter=all&id=3AW1BUYSY69G5&items-per-page=200&layout=standard-print&sort=date-added&visitor-view=1" )
+test_charity.wishlists.create!(name: "Our Wishlist", link: "http://www.amazon.com/gp/registry/wishlist/ref=cm_wl_act_print_v?ie=UTF8&disableNav=1&filter=all&id=3AW1BUYSY69G5&items-per-page=200&layout=standard-print&sort=date-added&visitor-view=1", original_link: "http://www.amazon.com/gp/registry/wishlist/3AW1BUYSY69G5" )
 
 
 users_array = []
 10.times do
+<<<<<<< HEAD
+  us = User.create(username:Faker::Name.name,email:Faker::Internet.email, password:"password")
+=======
   us = User.create(username:Faker::Name.name,email:Faker::Internet.email,password:"password")
+>>>>>>> 8e8da473547e5b91b900c8ce6b73bf2c3c94317e
   us.categories << cat.sample(2)
   us.charities << char.sample(2)
   users_array << us

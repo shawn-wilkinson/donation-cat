@@ -1,0 +1,27 @@
+<p>Search term: <em><%= @search_query %></em></p>
+
+<p>Search results:</p>
+
+<% if @charities.empty? && @categories.empty? %>
+  Sorry, the search terms entered yielded no results. Please try another search.
+<% end %>
+
+<% unless @charities.empty? %>
+<p>Charities:</p>
+  <% @charities.each do |charity| %>
+   <p><a href="/charities/<%= charity.id %>"><%= charity.name %></a></p>
+  <% end %>
+<% end %>
+
+<% unless @categories.empty? %>
+  <p>Categories</p>
+  <% @categories.each do |category| %>
+    <p><a href="/categories/<%= category.id %>"><%= category.name %></a></p>
+  <% end %>
+<% end %>
+
+
+
+
+
+
