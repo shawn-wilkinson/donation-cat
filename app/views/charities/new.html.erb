@@ -1,0 +1,45 @@
+<h1>List your charity:</h1>
+
+<%= form_for @charity do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br />
+
+	<%= f.text_area :description, :rows => 4, :cols => 50, :placeholder => "Description of charity...." %><br>
+
+  <%= f.label :zip_code %>:
+  <%= f.text_field :zip_code %><br />
+
+  <%= f.label :contact_name %>:
+  <%= f.text_field :contact_name %><br />
+
+  <%= f.label :contact_email %>:
+  <%= f.text_field :contact_email %><br />
+
+  <%= f.label :contact_phone %>:
+  <%= f.text_field :contact_phone %><br />
+
+  <%= f.label :password %>:
+  <%= f.text_field :password_hash %><br />
+
+  <%= f.submit %>
+<% end %>
+
+
+<% if @error %>
+  <p><%= @error %></p>
+<% end %>
+
+
+
+<!--    t.string :name
+      t.string :description
+      t.string :contact_name
+      t.string :contact_email
+      t.string :password_hash 
+
+
+	need zip code
+	need phone number
+
+
+      -->

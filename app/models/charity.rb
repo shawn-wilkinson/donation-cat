@@ -13,3 +13,6 @@ class Charity < ActiveRecord::Base
   end
 
 end
+
+
+
