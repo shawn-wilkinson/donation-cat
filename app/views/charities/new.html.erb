@@ -1,7 +1,7 @@
 <h1>List your charity:</h1>
 
 <%= form_for @charity do |f| %>
-  <%= f.label :name %>:
+  <%= f.label :charity_name %>:
   <%= f.text_field :name %><br />
 
 	<%= f.text_area :description, :rows => 4, :cols => 50, :placeholder => "Description of charity...." %><br>

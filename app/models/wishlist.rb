@@ -11,10 +11,22 @@ class Wishlist < ActiveRecord::Base
 			if link
 				
 				doc = Nokogiri::HTML(open(link))
+				# File.open('heythere.xml', 'w') { |f| f.print(doc) }
+
+				# test = doc.css(".g-print-profile tr").text
+
+				# p "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+				# p "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+				# p "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+				# p "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+				# p "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+				# p "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+				# p test
 			
 				track_row = doc.css("tr")
-				modified_track_row = track_row[3..-1]
-				modified_track_row.each do |track_row|
+				# p track_row[0].css("a-section a-spacing-none").text
+				modified_track_rows = track_row[3..-1]
+				modified_track_rows.each do |track_row|
 					
 					name = track_row.css(".g-title").first.text
 					picture_url = track_row.css("img").first["src"]
