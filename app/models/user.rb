@@ -5,12 +5,21 @@ class User < ActiveRecord::Base
   has_many :categories, through: :interests
   has_many :users_items
   has_many :items, through: :users_items
-
+  has_many :visitations
+  has_many :visited_charities, through: :visitations, source: :charity
 
 
   has_secure_password
 
 
+  def recently_visited_charities
+    self.visited_charities.order('created_at DESC').uniq.limit(5)
+  end
+
+  def visit_charity(charity)
+    self.visited_charities << charity
+    self.save
+  end
 
   def password=(password)
     self.password_digest = BCrypt::Password.create(password)
