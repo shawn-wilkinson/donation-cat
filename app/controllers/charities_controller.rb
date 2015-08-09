@@ -17,4 +17,8 @@ class CharitiesController < ApplicationController
     redirect_to charity_path(@charity)
   end
 
+  def recently_visited
+
+  end
+
 end

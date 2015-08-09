@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
   has_many :categories, through: :interests
   has_many :users_items
   has_many :items, through: :users_items
-
+  has_many :visitations
+  has_many :visited_charities, through: :visitations, source: :charity
 
 
   has_secure_password

@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   get 'charities/:id/star' => 'charities#star', as: :star
+  get 'charities/:id/recently_visited' => 'charities#recently_visited', as: :recently_visited
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
