@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     resources :wishlists
   end
 
+  #Custom routes for search
+  resources :search, only: [:index]
+
   get 'users/login' => 'users#login'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
