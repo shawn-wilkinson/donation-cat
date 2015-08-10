@@ -19,8 +19,7 @@ class CharitiesController < ApplicationController
 
   def show
     @charity = Charity.find(params[:id])
-    @wishlist = @charity.wishlists.first
-
+    @wishlist = @charity.wishlists.last
     @wishlist.update_wishlist if @wishlist
     current_user.visit_charity(@charity) if session[:user_id]
 
