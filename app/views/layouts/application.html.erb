@@ -65,6 +65,21 @@
               <%= button_to "New User", new_user_path(@user), :class => "ui primary button", :method => :get  %>
             </div>
             <% end %>
+
+
+             <% if session[:charity_id] %>
+            
+            <div class="item">
+            <a class="ui primary button" href="/charities/logout">Charity Log Out</a>
+            </div>
+            <% else %>
+            <div class="item">
+              <a class="ui primary button" href="/charities/login">Charity login</a>
+              <%= button_to "Register Your Charity", new_charity_path(@charity), :class => "ui primary button", :method => :get  %>
+            </div>
+            <% end %>
+
+
           </div>
 
     </div>
