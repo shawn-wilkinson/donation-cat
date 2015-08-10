@@ -4,7 +4,7 @@ class CreateItems < ActiveRecord::Migration
       t.references :wishlist
       t.string :name
       t.integer :creation_price
-      t.integer :current_price
+      t.string :current_price
       t.string :priority
       t.integer :qty_requested
       t.integer :qty_received

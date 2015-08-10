@@ -2,11 +2,17 @@ class CreateCharities < ActiveRecord::Migration
   def change
     create_table :charities do |t|
       t.string :name
-      t.string :description
+      t.text :description
       t.string :contact_name
       t.string :contact_email
-      t.string :password_hash
+      t.string :contact_phone
+      t.string :street_address
+      t.string :city
+      t.string :state
+      t.string :zip_code
+      t.string :password_digest      
       t.string :slug
+
 
       t.timestamps null: false
     end
