@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   has_many :visited_charities, through: :visitations, source: :charity
 
 
+  after_create :set_slug
+
   has_secure_password
 
 
@@ -27,6 +29,15 @@ class User < ActiveRecord::Base
 
   def is_password?(password)
     BCrypt::Password.new(self.password_digest) == password
+  end
+
+  def set_slug
+    self.slug = self.username.downcase.split.join("-") + "-" + self.id.to_s
+    self.save
+  end
+
+  def to_param
+    self.slug
   end
 
 
