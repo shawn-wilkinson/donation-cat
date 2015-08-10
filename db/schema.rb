@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20150810142409) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
+    t.string   "slug"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "downcase_name"
@@ -36,8 +37,9 @@ ActiveRecord::Schema.define(version: 20150810142409) do
     t.string   "contact_name"
     t.string   "contact_email"
     t.string   "password_hash"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "slug"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "downcase_name"
     t.string   "street_address"
     t.string   "city"
@@ -76,6 +78,7 @@ ActiveRecord::Schema.define(version: 20150810142409) do
     t.string   "username"
     t.string   "email"
     t.string   "password_digest"
+    t.string   "slug"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

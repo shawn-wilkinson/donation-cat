@@ -9,6 +9,7 @@ class Charity < ActiveRecord::Base
   has_many :visiting_users, through: :visitations, source: :user
 
   before_create :add_downcase_name
+  after_create :set_slug
 
   geocoded_by :address_string
   after_validation :geocode, :if => :address_string_changed?
@@ -23,6 +24,14 @@ class Charity < ActiveRecord::Base
 
   def address_string_changed?
     street_address_changed? || city_changed? || state_changed? || zip_code_changed?
+
+  def set_slug
+    self.slug = self.name.downcase.split.join("-") + "-" + self.id.to_s
+    self.save
+  end
+
+  def to_param
+    self.slug
   end
 
 end
