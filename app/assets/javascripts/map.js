@@ -1,3 +1,4 @@
+
 function loadMap() {
   var address = document.getElementById("mailing-address").innerText;
   codeAddress(address);
@@ -24,7 +25,12 @@ function codeAddress(address) {
           });
 }
 
-window.onload=loadMap;
+$(function() {
+  if($("body.show.charities").length > 0){
+    loadMap();
+  }
+})
+
 
 
 

@@ -10,8 +10,19 @@ class Charity < ActiveRecord::Base
 
   before_create :add_downcase_name
 
+  geocoded_by :address_string
+  after_validation :geocode, :if => :address_string_changed?
+
   def add_downcase_name
     self.downcase_name = name.downcase
+  end
+
+  def address_string
+    street_address + ", " + city + ", " + state + " " + zip_code
+  end
+
+  def address_string_changed?
+    street_address_changed? || city_changed? || state_changed? || zip_code_changed?
   end
 
 end
