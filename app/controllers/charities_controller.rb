@@ -24,7 +24,10 @@ class CharitiesController < ApplicationController
 
   def map_location
     @charity = Charity.find(params[:id])
-    { name: @charity.name, @charity.coordinates }
+    respond_to do |format|
+      format.html
+      format.json { render json: @charity }
+    end
   end
 
 end
