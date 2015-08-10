@@ -1,3 +1,21 @@
 /*******************************
      User Global Variables
 *******************************/
+
+/*-------------------
+    Site Colors
+--------------------*/
+
+/*---  Colors  ---*/
+@blue             : #69D2E7;
+@green            : #5BBD72;
+@orange           : #E07B53;
+@pink             : #D9499A;
+@purple           : #564F8A;
+@red              : #D95C5C;
+@teal             : #A7DBD8;
+@yellow           : #F2C61F;
+
+@black            : #1B1C1D;
+@grey             : #CCCCCC;
+@white            : #FFFFFF;

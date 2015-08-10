@@ -1,18 +1,26 @@
 
   <div class="ui vertical stripe segment">
-    <div class="ui middle aligned stackable grid container">
-      <div class="row">
-        <div class="center aligned column">
+    <div class="ui six column centered grid">
+      <div class="six wide column">
+        <div class="ui teal inverted segment">
+           <form class="ui form">
            <h1>Sign Up</h1>
 
 				<%= form_for :user, url: '/users' do |f| %>
-				  Username: <%= f.text_field :username %>
+				<div class="field">
+				  Username: <%= f.text_field :username %></div>
 				<BR>
-				  Email: <%= f.text_field :email %>
+				<div class="field">
+				  Email: <%= f.text_field :email %></div>
+				<BR><div class="field">
+				  Password: <%= f.password_field :password %></div>
 				<BR>
-				  Password: <%= f.password_field :password %>
-				<BR>
-				  <%= f.submit "Submit" %>
+				<div class="ui error message">
+              <div class="header">Invalid Registration</div>
+                <p>Try again.</p>
+              </div>
+				<button class="ui button">
+				  <%= f.submit "Submit" %></button>
 
 				<% end %>
 				<% if @error %>

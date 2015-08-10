@@ -27,7 +27,7 @@ class CharitiesController < ApplicationController
   end
 
   def star
-    @charity = Charity.find_by(params[:id])
+    @charity = Charity.find(params[:id])
     if current_user.charities.include?(@charity)
       users_charity = UsersCharity.find_by user:current_user, charity: @charity
       users_charity.destroy
