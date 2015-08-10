@@ -1,4 +1,3 @@
-
 function loadMap() {
   var address = document.getElementById("mailing-address").innerText;
   codeAddress(address);
@@ -25,12 +24,12 @@ function codeAddress(address) {
           });
 }
 
-$(function() {
-  if($("body.show.charities").length > 0){
-    loadMap();
-  }
-})
-
+var location = window.location.href
+var route = location.pathname.concat('/map')
+var request = $.ajax({url: route, method: 'GET'})
+request.done(function(response){
+  debugger;
+});
 
 
 

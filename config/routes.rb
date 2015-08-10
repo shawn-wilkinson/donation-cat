@@ -15,14 +15,17 @@ Rails.application.routes.draw do
   #Custom routes for search
   resources :search, only: [:index]
 
+  #routes for sessions
   get 'users/login' => 'users#login'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  
+  #routes for charities/star and charities/map
   get 'charities/:id/star' => 'charities#star', as: :star
   get 'charities/:id/recently_visited' => 'charities#recently_visited', as: :recently_visited
+
+  get 'charities/:id/map' => 'charities#map_location'
 
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

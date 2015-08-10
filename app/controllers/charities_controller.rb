@@ -20,7 +20,11 @@ class CharitiesController < ApplicationController
   end
 
   def recently_visited
+  end
 
+  def map_location
+    @charity = Charity.find(params[:id])
+    { name: @charity.name, @charity.coordinates }
   end
 
 end

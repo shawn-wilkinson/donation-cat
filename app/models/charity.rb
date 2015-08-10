@@ -25,4 +25,8 @@ class Charity < ActiveRecord::Base
     street_address_changed? || city_changed? || state_changed? || zip_code_changed?
   end
 
+  def coordinates
+    latitude.to_s + ", " + longitude.to_s
+  end
+
 end
