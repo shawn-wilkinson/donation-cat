@@ -7,7 +7,7 @@
 			<p> <%= @charity.description %></p>
 			<p><%= @charity.street_address %>, <%= @charity.city %>, <%= @charity.state %>, <%= @charity.zip_code %> </p>
 
-			<% if @wishlist.items.count > 0 %>
+			<% if @wishlist && @wishlist.items.count > 0 %>
 				<p><%= @charity.name %>'s Wishlist:</p>
 			<% else %>
 				<%= link_to "Add Amazon Wishlist", new_charity_wishlist_path(@charity) %>
@@ -24,9 +24,9 @@
 
 
 			<ul>
-				<% if @wishlist.items.count > 0 %>
+				<% if @wishlist && @wishlist.items.count > 0 %>
 					<% @wishlist.items.each do |item|  %>
-						<p><img src="<%= item.picture_url %>"><a href="<%= @wishlist.original_link %>"><%= item.name %></a>Price: <%= item.current_price %>    Priority: <%= item.priority %>    Requested Quantity: <%= item.qty_requested %>    Quanity Received: <%= item.qty_received %></p><br>
+						<p><img src="<%= item.picture_url %>"><a href="<%= @wishlist.original_link %>"><%= item.name %></a>, Price: <%= item.current_price %>, Priority: <%= item.priority %>, Requested Quantity: <%= item.qty_requested %>, Quanity Received: <%= item.qty_received %></p><br>
 					<% end %>
 				<% end %>
         </div>

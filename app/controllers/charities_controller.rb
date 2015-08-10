@@ -4,9 +4,9 @@ class CharitiesController < ApplicationController
     @charity = Charity.new
   end
 
+
+
   def create
-
-
     @charity = Charity.new(charity_params)
     if @charity.save
       session[:charity_id] = @charity.id
@@ -41,7 +41,7 @@ class CharitiesController < ApplicationController
   private
 
   def charity_params
-    params.require(:charity).permit(:name, :description, :category, :zip_code, :contact_name, :contact_email, :contact_phone, :street_address, :city, :state, :password_hash, category_ids: [])
+    params.require(:charity).permit(:name, :description, :category, :zip_code, :contact_name, :contact_email, :contact_phone, :street_address, :city, :state, :password, category_ids: [])
   end
   def recently_visited
 

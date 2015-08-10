@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(version: 20150809173416) do
     t.string   "city"
     t.string   "state"
     t.string   "zip_code"
-    t.string   "password_hash"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "downcase_name"
   end
 
