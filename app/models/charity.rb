@@ -24,6 +24,7 @@ class Charity < ActiveRecord::Base
 
   def address_string_changed?
     street_address_changed? || city_changed? || state_changed? || zip_code_changed?
+  end
 
   def set_slug
     self.slug = self.name.downcase.split.join("-") + "-" + self.id.to_s

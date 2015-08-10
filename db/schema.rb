@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 20150810142409) do
     t.string   "contact_email"
     t.string   "password_hash"
     t.string   "slug"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.string   "downcase_name"
     t.string   "street_address"
     t.string   "city"
