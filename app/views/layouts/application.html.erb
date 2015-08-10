@@ -1,95 +1,154 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Donation Cat</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
+  <head>
+    <title>Donation Cat</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
 
-  <%= csrf_meta_tags %>
+    <%= csrf_meta_tags %>
 
+    <meta property="og:url"           content="http://www.donationcat.com" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Donation Cat" />
+    <meta property="og:description"   content="Find and connect with charities near you" />
+    <meta property="og:image"         content="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ8QHUUNeXtf6aPDTvIZQG485DTeClzpGiRTu3qYIH1V1W4VWEe" />
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '445020762352108',
+        xfbml      : true,
+        version    : 'v2.4'
+      });
+    };
 
-</head>
-<body>
-<div id="wrap">
-<div class="ui blue large top fixed inverted menu">
-  <div class="ui container">
-    <a class="active item">Home</a>
-    <a class="item">Charities</a>
-    <a class="item">About</a>
-    
-   <div class="right menu">
-        <div class="item">
-        <div class="ui search">
-          <div class="ui icon input">
-            <form  action="/search" method="GET">
-              <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
-              <div>
-              <input id="search" name="search" type="search" placeholder="Search" required>
-              </div>
-            </form>
-          </div>
-        </div>
-        </div>
-          <% if current_user %>
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <div id="wrap">
+  <div class="ui blue large top fixed inverted menu">
+    <div class="ui container">
+      <a class="active item">Home</a>
+      <a class="item">Charities</a>
+      <a class="item">About</a>
+
+     <div class="right menu">
           <div class="item">
-            <a href="/users/<%= current_user.id %>">Welcome, <%= current_user.username %></a>
+          <div class="ui search">
+            <div class="ui icon input">
+              <form  action="/search" method="GET">
+                <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+                <div>
+                <input id="search" name="search" type="search" placeholder="Search" required>
+                </div>
+              </form>
+            </div>
           </div>
-          <div class="item">
-          <a class="ui primary button" href="/logout">Log out</a>
           </div>
-          <% else %>
-          <div class="item">
-            <a class="ui primary button" href="/login">Log in</a>
-            <%= button_to "New User", new_user_path(@user), :class => "ui primary button", :method => :get  %>
+            <% if current_user %>
+            <div class="item">
+              <a href="/users/<%= current_user.id %>">Welcome, <%= current_user.username %></a>
+            </div>
+            <div class="item">
+            <a class="ui primary button" href="/logout">Log out</a>
+            </div>
+            <% else %>
+            <div class="item">
+              <a class="ui primary button" href="/login">Log in</a>
+              <%= button_to "New User", new_user_path(@user), :class => "ui primary button", :method => :get  %>
+            </div>
+            <% end %>
           </div>
-          <% end %>
-        </div>
 
+    </div>
   </div>
-</div>
 
 
-<!-- Page Contents -->
-<div class="pusher">
-  <div class="ui vertical masthead center aligned segment">
+  <!-- Page Contents -->
+  <div class="pusher">
+    <div class="ui vertical masthead center aligned segment">
 
-    <div class="ui container">
-      
+      <div class="ui container">
 
 
-  
-<%= yield %>
-</div>
-</div>
-<div class="ui inverted vertical fixed footer segment">
-    <div class="ui container">
-      <div class="ui stackable inverted divided equal height stackable grid">
-        <div class="three wide column">
-          <h4 class="ui inverted header">About</h4>
-          <div class="ui inverted link list">
-            <a href="#" class="item">Sitemap</a>
-            <a href="#" class="item">Contact Us</a>
-            <a href="#" class="item">Religious Ceremonies</a>
-            <a href="#" class="item">Gazebo Plans</a>
+
+  <%= yield %>
+    </div>
+  </div>
+    <div class="ui inverted vertical fixed footer segment">
+        <div class="ui container">
+          <div class="ui stackable inverted divided equal height stackable grid">
+            <div class="three wide column">
+              <h4 class="ui inverted header">About</h4>
+              <div class="ui inverted link list">
+                <a href="#" class="item">Sitemap</a>
+                <a href="#" class="item">Contact Us</a>
+                <a href="#" class="item">Religious Ceremonies</a>
+                <a href="#" class="item">Gazebo Plans</a>
+              </div>
+            </div>
+            <div class="three wide column">
+              <h4 class="ui inverted header">Services</h4>
+              <div class="ui inverted link list">
+                <a href="#" class="item">Banana Pre-Order</a>
+                <a href="#" class="item">DNA FAQ</a>
+                <a href="#" class="item">How To Access</a>
+                <a href="#" class="item">Favorite X-Men</a>
+              </div>
+            </div>
+            <div class="seven wide column">
+              <h4 class="ui inverted header">Footer Header</h4>
+              <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+
+              <?php
+              /**
+               * Get the current Url taking into account Https and Port
+               * @link http://css-tricks.com/snippets/php/get-current-page-url/
+               * @version Refactored by @AlexParraSilva
+               */
+              function getUrl() {
+                  $url  = isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ? 'https' : 'http';
+                  $url .= '://' . $_SERVER['SERVER_NAME'];
+                  $url .= in_array( $_SERVER['SERVER_PORT'], array('80', '443') ) ? '' : ':' . $_SERVER['SERVER_PORT'];
+                  $url .= $_SERVER['REQUEST_URI'];
+                  return $url;
+              }
+              // Print Share link on Page
+              $encoded_url = urlencode( getUrl() );
+              if ( !empty($encoded_url) ){ ?>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $encoded_url; ?>" target="_blank">
+               Share this page on Facebook
+              </a>
+              <?php } ?><br><br>
+
+              <script>(function(d, s, id) {
+                console.log("Hello");
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+                fjs.parentNode.insertBefore(js, fjs);
+              }(document, 'script', 'facebook-jssdk'));</script>
+
+              <!-- Your like button code -->
+              <div class="fb-like"
+                  data-href="http://www.donationcat.com"
+                  data-layout="standard"
+                  data-action="like"
+                  data-show-faces="true">
+              </div>
+            </div>
+
           </div>
-        </div>
-        <div class="three wide column">
-          <h4 class="ui inverted header">Services</h4>
-          <div class="ui inverted link list">
-            <a href="#" class="item">Banana Pre-Order</a>
-            <a href="#" class="item">DNA FAQ</a>
-            <a href="#" class="item">How To Access</a>
-            <a href="#" class="item">Favorite X-Men</a>
-          </div>
-        </div>
-        <div class="seven wide column">
-          <h4 class="ui inverted header">Footer Header</h4>
-          <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
         </div>
       </div>
     </div>
-  </div>
-</div>
-
-</body>
+  </body>
 </html>
