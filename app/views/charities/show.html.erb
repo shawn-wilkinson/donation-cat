@@ -1,6 +1,41 @@
-<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js" %>
-<%= javascript_include_tag "map.js" %>
 <%= stylesheet_link_tag "map.css" %>
+
+<script src='https://maps.googleapis.com/maps/api/js' + '&callback=loadMap'></script>
+
+<script>
+	function codeAddress(address) {
+	          var geocoder = new google.maps.Geocoder();
+	          geocoder.geocode({'address': address}, function(results, status) {
+	              if (status == google.maps.GeocoderStatus.OK) {
+	                  var myOptions = {
+	                      zoom: 14,
+	                      center: results[0].geometry.location,
+	                      mapTypeId: google.maps.MapTypeId.ROADMAP
+	                  }
+	                  var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+
+	                  var charityName = document.getElementById("charity-name").innerText;
+
+	                  var marker = new google.maps.Marker({
+	                      map: map,
+	                      position: results[0].geometry.location,
+	                      title: charityName
+	                  });
+	              }
+	          });
+	}
+
+
+	function loadMap() {
+	  var address = document.getElementById("mailing-address").innerText;
+	  codeAddress(address);
+	}
+
+
+	window.onload=loadMap;
+</script>
+
+<body>
 
 <h1 id="charity-name"><%= @charity.name %></h1>
 <p> <%= @charity.description %></p>
@@ -20,3 +55,5 @@
 
 <div id="map-canvas"></div>
 <address id="mailing-address">5200 N Sheridan Rd., Chicago, IL, 60654</address>
+
+</body>
