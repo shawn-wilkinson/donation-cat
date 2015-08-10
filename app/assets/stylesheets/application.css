@@ -76,6 +76,25 @@
       display: none;
     }
 
+html, body {
+  height: 100%;
+}
+
+#wrap {
+  min-height: 100%;
+}
+
+#main {
+  overflow:auto;
+  padding-bottom: 200px;
+}  /* must be same height as the footer */
+
+footer {
+  position: relative;
+  margin-top: -200px; /* negative value of footer height */
+  height: 230px;
+  clear:both;
+} 
     @media only screen and (max-width: 700px) {
       .ui.fixed.menu {
         display: none !important;
