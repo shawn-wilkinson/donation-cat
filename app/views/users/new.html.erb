@@ -1,0 +1,26 @@
+
+  <div class="ui vertical stripe segment">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="center aligned column">
+           <h1>Sign Up</h1>
+
+				<%= form_for :user, url: '/users' do |f| %>
+				  Username: <%= f.text_field :username %>
+				<BR>
+				  Email: <%= f.text_field :email %>
+				<BR>
+				  Password: <%= f.password_field :password %>
+				<BR>
+				  <%= f.submit "Submit" %>
+
+				<% end %>
+				<% if @error %>
+				  <p><%= @error %></p>
+				<% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
