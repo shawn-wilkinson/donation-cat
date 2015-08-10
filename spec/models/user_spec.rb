@@ -2,7 +2,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:test_user) {User.new(username:"Lilly Smith", email:"lilly@lilly.com", password_hash:"password")}
+  let(:test_user) {User.new(username:"Lilly Smith", email:"lilly@lilly.com", password_digest:"password")}
 
   it 'has a username' do
     expect(test_user.username).to eq("Lilly Smith")
@@ -13,7 +13,7 @@ RSpec.describe User, type: :model do
   end
 
   it 'has a password hash' do
-    expect(test_user.password_hash).to eq("password")
+    expect(test_user.password_digest).to eq("password")
   end
 
   it 'can be interested in categories' do
