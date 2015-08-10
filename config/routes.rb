@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
-
+  get '/about' => 'welcome#about'
   
   get 'charities/:id/star' => 'charities#star', as: :star
   get 'charities/:id/recently_visited' => 'charities#recently_visited', as: :recently_visited
