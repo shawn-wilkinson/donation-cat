@@ -65,21 +65,6 @@
               <%= button_to "New User", new_user_path(@user), :class => "ui primary button", :method => :get  %>
             </div>
             <% end %>
-
-
-             <% if session[:charity_id] %>
-            
-            <div class="item">
-            <a class="ui primary button" href="/charities/logout">Charity Log Out</a>
-            </div>
-            <% else %>
-            <div class="item">
-              <a class="ui primary button" href="/charities/login">Charity login</a>
-              <%= button_to "Register Your Charity", new_charity_path(@charity), :class => "ui primary button", :method => :get  %>
-            </div>
-            <% end %>
-
-
           </div>
 
     </div>
@@ -103,9 +88,14 @@
             <div class="three wide column">
               <h4 class="ui inverted header">About</h4>
               <div class="ui inverted link list">
+                <% if session[:charity_id] %>
+                  <a href="/charities/logout" class="item">Charity Log Out</a>
+                <% else %>
+                  <a href="/charities/login" class="item">Charity login</a>
+                  <a href="/charities/new" class="item">Register Your Charity</a>
+                <% end %>
                 <a href="#" class="item">Sitemap</a>
                 <a href="#" class="item">Contact Us</a>
-                <a href="#" class="item">Religious Ceremonies</a>
                 <a href="#" class="item">Gazebo Plans</a>
               </div>
             </div>
