@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-
+  get 'charities/login' => 'charities#identify', as: "charities_login"
+  post 'charities/login' => 'charities#login'
+  get 'charities/logout' => 'charities#destroy'
   resources :categories
 
   resources :users
@@ -20,7 +22,6 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  get 'charities/login' => 'charities#login'
 
   
   get 'charities/:id/star' => 'charities#star', as: :star

@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save!
       session[:user_id] = @user.id
+      session[:charity_id] = nil
       redirect_to '/'
     else
       @error = "Invalid Registration"
@@ -16,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(slug: params[:id])
     if current_user == @user
       @starred_charities = current_user.charities
       @visited_charities = current_user.recently_visited_charities
