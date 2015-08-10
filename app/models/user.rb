@@ -1,4 +1,12 @@
 class User < ActiveRecord::Base
+
+  validates :username, presence: true
+  validates_uniqueness_of :email
+  validates :email, presence: true
+  
+  
+
+
   has_many :users_charities
   has_many :charities, through: :users_charities
   has_many :interests
@@ -7,6 +15,8 @@ class User < ActiveRecord::Base
   has_many :items, through: :users_items
   has_many :visitations
   has_many :visited_charities, through: :visitations, source: :charity
+
+
 
 
   has_secure_password
