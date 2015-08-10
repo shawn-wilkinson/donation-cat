@@ -1,0 +1,24 @@
+  <div class="ui vertical stripe segment">
+    <div class="ui six column centered grid">
+      <div class="six wide column">
+        <div class="ui teal inverted segment">
+           
+           <h1>Charity Login</h1>
+
+        <%= form_tag charities_login_path, method: :post, class: "ui form" do %>
+        
+          Email: <%= text_field_tag :contact_email, nil, class: 'field' %>
+          <BR>
+          
+            Password: <%= password_field_tag :password, nil, class: 'field' %>
+          <BR><BR>
+            <%= submit_tag "Submit", class: 'ui button' %>
+         
+        <% end %>
+      
+        </div>
+      </div>
+    </div>
+  </div>
+
+
