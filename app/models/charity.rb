@@ -10,6 +10,10 @@ class Charity < ActiveRecord::Base
 
   before_create :add_downcase_name
 
+  def category=(placeholder)
+
+  end
+
   # has_secure_password
 
 

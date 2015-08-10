@@ -6,7 +6,7 @@ class CreateCharities < ActiveRecord::Migration
       t.string :contact_name
       t.string :contact_email
       t.string :contact_phone
-      t.string :mailing_address
+      t.string :street_address
       t.string :city
       t.string :state
       t.string :zip_code

@@ -6,6 +6,8 @@
 
 	<%= f.text_area :description, :rows => 4, :cols => 50, :placeholder => "Description of charity...." %><br>
 
+  <%= f.select :category_ids, Category.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %><br>
+
   <%= f.label :contact_name %>:
   <%= f.text_field :contact_name %><br />
 
@@ -15,10 +17,10 @@
   <%= f.label :contact_phone %>:
   <%= f.text_field :contact_phone %><br />
 
-  <%= f.label :mailing_address %>:
-  <%= f.text_field :mailing_address %><br />
+  <%= f.label :street_address %>:
+  <%= f.text_field :street_address %><br />
 
-    <%= f.label :city %>:
+  <%= f.label :city %>:
   <%= f.text_field :city %><br />
 
   <%= f.label :state %>:
@@ -28,10 +30,12 @@
   <%= f.text_field :zip_code %><br />
 
   <%= f.label :password %>:
-  <%= f.text_field :password_hash %><br />
+  <%= f.password_field :password_hash %><br />
 
   <%= f.submit %>
 <% end %>
+
+
 
 
 <% if @error %>
@@ -40,15 +44,5 @@
 
 
 
-<!--    t.string :name
-      t.string :description
-      t.string :contact_name
-      t.string :contact_email
-      t.string :password_hash 
 
 
-	need zip code
-	need phone number
-
-
-      -->

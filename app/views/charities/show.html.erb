@@ -1,31 +1,41 @@
 <h1><%= @charity.name %></h1>
 <p> Description: <%= @charity.description %></p>
+<div id="address-div">
+<p><%= @charity.street_address %>, <%= @charity.city %>, <%= @charity.state %>, <%= @charity.zip_code %> </p>
+</div>
+
+
+
+
+
 <% if @wishlist %>
 	<p><%= @charity.name%>'s Wishlist:</p>
 <% end %>
 
 <% if !@wishlist %>
-	<%= link_to "Add Wishlist", new_charity_wishlist_path(@charity) %>
+	<%= link_to "Add Amazon Wishlist", new_charity_wishlist_path(@charity) %>
 <% end %><br><br>
 
-<% if current_user.charities.include?(@charity) %>
-  <p><%= link_to "Un-Star This Charity", star_path(@charity) %></p>
-<% else %>
-  <p><%= link_to "Star This Charity", star_path(@charity) %></p>
+<% if session[:user_id] %>
+	<% if current_user.charities.include?(@charity) %>
+	  <p><%= link_to "Un-Star This Charity", star_path(@charity) %></p>
+	<% else %>
+	  <p><%= link_to "Star This Charity", star_path(@charity) %></p>
+	<% end %>
 <% end %>
 
 
-<ul>
 
 	<% if @wishlist %>
-		<% @wishlist.items.each do |item|  %>
-	<p><img src="<%= item.picture_url %>"><a href="<%= @wishlist.original_link %>"><%= item.name %></a>Price: <%= item.current_price %>    Priority: <%= item.priority %>    Requested Quantity: <%= item.qty_requested %>    Quanity Received: <%= item.qty_received %></p><br>
+	<ul>
+			<% @wishlist.items.each do |item|  %>
+		<p><img src="<%= item.picture_url %>"><a href="<%= @wishlist.original_link %>"><%= item.name %></a>Price: <%= item.current_price %>    Priority: <%= item.priority %>    Requested Quantity: <%= item.qty_requested %>    Quanity Received: <%= item.qty_received %></p><br>
 
-	<% end %>
+		<% end %>
+	</ul>
 <% end %>
 
 
 
 
  
-<ul>
