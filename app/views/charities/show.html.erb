@@ -1,4 +1,8 @@
-<h1><%= @charity.name %></h1>
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js" %>
+<%= javascript_include_tag "map.js" %>
+<%= stylesheet_link_tag "map.css" %>
+
+<h1 id="charity-name"><%= @charity.name %></h1>
 <p> <%= @charity.description %></p>
 <p><%= @charity.name%>'s Wishlist:</p>
 
@@ -9,14 +13,13 @@
 <% end %>
 
 <ul>
-
 	<% @wishlist.items.each do |item|  %>
-<p><img src="<%= item.picture_url %>"><a href="<%= @wishlist.original_link %>"><%= item.name %></a>Price: <%= item.current_price %>    Priority: <%= item.priority %>    Requested Quantity: <%= item.qty_requested %>    Quanity Received: <%= item.qty_received %></p><br>
+    <p><img src="<%= item.picture_url %>"><a href="<%= @wishlist.original_link %>"><%= item.name %></a>Price: <%= item.current_price %>    Priority: <%= item.priority %>    Requested Quantity: <%= item.qty_requested %>    Quanity Received: <%= item.qty_received %></p><br>
+  <% end %>
+</ul>
 
-<% end %>
+<div id="map-canvas"></div>
+<address id="mailing-address">5200 N Sheridan Rd., Chicago, IL, 60654</address>
 
 
 
-
- 
-<ul>
