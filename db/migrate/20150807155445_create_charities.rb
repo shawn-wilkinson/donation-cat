@@ -6,6 +6,7 @@ class CreateCharities < ActiveRecord::Migration
       t.string :contact_name
       t.string :contact_email
       t.string :password_hash
+      t.string :slug
 
       t.timestamps null: false
     end
