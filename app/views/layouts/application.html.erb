@@ -52,7 +52,7 @@
             </div>
           </div>
           </div>
-            <% if current_user %>
+            <% if session[:user_id] %>
             <div class="item">
               <a href="/users/<%= current_user.id %>">Welcome, <%= current_user.username %></a>
             </div>

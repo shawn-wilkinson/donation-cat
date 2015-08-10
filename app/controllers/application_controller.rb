@@ -5,13 +5,11 @@ class ApplicationController < ActionController::Base
 
 
   def current_user
-    if session[:user_id]
-      if User.find(session[:user_id])
+      if session[:user_id] 
         @current_user ||= User.find(session[:user_id]) if session[:user_id]
-      elsif Charity.find(session[:charity_id])
+      elsif session[:charity_id]
         @current_user ||= Charity.find(session[:charity_id]) if session[:charity_id]
       end
-    end
   end
 
   helper_method :current_user
