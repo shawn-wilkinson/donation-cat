@@ -3,7 +3,6 @@
   <head>
     <title>Donation Cat</title>
     <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
 
     <%= csrf_meta_tags %>
 
@@ -14,7 +13,7 @@
     <meta property="og:image"         content="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ8QHUUNeXtf6aPDTvIZQG485DTeClzpGiRTu3qYIH1V1W4VWEe" />
     <link href='http://fonts.googleapis.com/css?family=Molle:400italic' rel='stylesheet' type='text/css'>
   </head>
-  <body>
+  <body class="<%= params[:action] %> <%= params[:controller] %>">
     <div id="fb-root"></div>
     <script>
     window.fbAsyncInit = function() {
@@ -156,6 +155,9 @@
         </div>
       </div>
     </div>
+
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js" %>
+    <%= javascript_include_tag 'application' %>
     <%= yield :javascripts %>
   </body>
 </html>

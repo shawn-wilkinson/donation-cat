@@ -1,3 +1,16 @@
+var map;
+
+function centerOnZip(zipCode) {
+    geocoder = new google.maps.Geocoder();
+    geocoder.geocode( { 'address': zipCode}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        map.setCenter(results[0].geometry.location);
+      } else {
+        alert("Geocode was not successful for the following reason: " + status);
+      }
+    });
+  }
+
 function loadMap() {
   var route = window.location.pathname.concat('/map');
   var request = $.ajax({url: route, method: 'GET', dataType: "json"});
@@ -14,17 +27,18 @@ function generateMap(latlong, name) {
                     center: latlong,
 
                   }
-  var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+  map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
 
   var marker = new google.maps.Marker({
                                       map: map,
                                       position: latlong,
                                       title: name
                                       });
+  // google.maps.event.addDomListener(window, 'load', initialize);
 }
 
 function loadFullMap(){
-var route = "/charities/map";
+  var route = "/charities/map";
   var request = $.ajax({url: route, method: 'GET', dataType: "json"});
   request.done(function(response){
       generateFullMap(response);
@@ -37,7 +51,7 @@ function generateFullMap(charities){
                     zoom: 10,
                     center: latlngCenter,
                   }
-  var map = new google.maps.Map(document.getElementById("full-map-canvas"), myOptions);
+  map = new google.maps.Map(document.getElementById("full-map-canvas"), myOptions);
   for(var i=0; i<charities.length; i++){
     var latlong = { lat: charities[i]["latitude"], lng: charities[i]["longitude"] };
     var name = charities[i]["name"];
@@ -59,6 +73,24 @@ function generateFullMap(charities){
   }
 }
 
+$(document).ready(function(){
+  if($("body.map_locations.charities").length > 0){
+    $("#search-zip-form").on('submit', function(event){
+      event.preventDefault();
+      $("#error-container").html("");
+      var zip = $('input[name="search-zip"]').val()
+      if(zip.length === 5){
+        centerOnZip(zip);  
+      } else {
+        var error = "Please enter a valid 5-digit zip code.";
+        $("#error-container").html(error);
+      }
+    });
+  };
+})
+
+
+  
 
 
 
