@@ -1,8 +1,7 @@
-
 require 'rails_helper'
 
 RSpec.describe Charity, type: :model do
-  let(:test_charity) {Charity.new(name:"Lake View Mission", description:"test description", contact_name:"Sara Thomas", contact_email:"sara@sara.com",password_hash:"password")}
+  let(:test_charity) {Charity.new(name:"Lake View Mission", description:"test description", contact_name:"Sara Thomas", contact_email:"sara@sara.com")}
   it 'has a name' do
 
   end
@@ -21,10 +20,6 @@ RSpec.describe Charity, type: :model do
 
   it 'has an email' do
     expect(test_charity.contact_email).to eq("sara@sara.com")
-  end
-
-  it 'has a password hash' do
-    expect(test_charity.password_hash).to eq("password")
   end
 
   it 'can can have users' do

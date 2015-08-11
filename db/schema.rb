@@ -33,13 +33,23 @@ ActiveRecord::Schema.define(version: 20150810234547) do
 
   create_table "charities", force: :cascade do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.string   "contact_name"
     t.string   "contact_email"
-    t.string   "password_hash"
+    t.string   "contact_phone"
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
+    t.string   "password_digest"
     t.string   "slug"
+<<<<<<< HEAD
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+=======
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+>>>>>>> b38e5d46661d3bb11f92849ab33c35d02e8ec372
     t.string   "downcase_name"
     t.string   "street_address"
     t.string   "city"
@@ -60,7 +70,7 @@ ActiveRecord::Schema.define(version: 20150810234547) do
     t.integer  "wishlist_id"
     t.string   "name"
     t.integer  "creation_price"
-    t.integer  "current_price"
+    t.string   "current_price"
     t.string   "priority"
     t.integer  "qty_requested"
     t.integer  "qty_received"

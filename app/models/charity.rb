@@ -1,6 +1,11 @@
 class Charity < ActiveRecord::Base
-  has_many :users_charities
+
+
+  validates_presence_of :contact_email, presence: true
+  
+
   has_many :users, through: :users_charities
+  has_many :users_charities
   has_many :categorizations
   has_many :categories, through: :categorizations
   has_many :wishlists
@@ -13,6 +18,9 @@ class Charity < ActiveRecord::Base
 
   geocoded_by :address_string
   after_validation :geocode, :if => :address_string_changed?
+
+  has_secure_password
+
 
   def add_downcase_name
     self.downcase_name = name.downcase
@@ -35,4 +43,13 @@ class Charity < ActiveRecord::Base
     self.slug
   end
 
+  # helper_method :current_user
+
+  # def allowed_to_edit?
+  #   current_user == self
+  # end
+
 end
+
+
+

@@ -6,28 +6,39 @@
 <% end %>
 <%= stylesheet_link_tag "map.css" %>
 
+
   <div class="ui vertical stripe segment">
     <div class="ui middle aligned stackable grid container">
       <div class="row">
         <div class="center aligned column">
-          <h1><%= @charity.name %></h1>
-    			<p> <%= @charity.description %></p>
-    			<p><%= @charity.name%>'s Wishlist:</p>
 
-          <% if current_user %>
-      			<% if current_user.charities.include?(@charity) %>
-      			  <p><%= link_to "Un-Star This Charity", star_path(@charity) %></p>
-      			<% else %>
-      			  <p><%= link_to "Star This Charity", star_path(@charity) %></p>
-      			<% end %>
-          <% end %>
+           <h1><%= @charity.name %></h1>
+			<p> <%= @charity.description %></p>
+			<p><%= @charity.street_address %>, <%= @charity.city %>, <%= @charity.state %>, <%= @charity.zip_code %> </p>
 
-    			<% @wishlist.items.each do |item|  %>
-      			<p><img src="<%= item.picture_url %>"><a href="<%= @wishlist.original_link %>"><%= item.name %></a>Price: <%= item.current_price %>    Priority: <%= item.priority %>    Requested Quantity: <%= item.qty_requested %>    Quanity Received: <%= item.qty_received %></p><br>
-    			<% end %>
+		  <div id="map-canvas"></div>
+			
+      <% if @charity == current_user %>
+				<% if @wishlist && @wishlist.items.count > 0 %>
+					<p>Amazon Wishlist:</p>
+				<% else %>
+					<%= link_to "Add Amazon Wishlist", new_charity_wishlist_path(@charity) %>
+				<% end %>
+			<% end %>
 
-          <div id="map-canvas"></div>
+			<% if session[:user_id] %>
+				<% if current_user.charities.include?(@charity) %>
+	  			<p><%= link_to "Un-Star This Charity", star_path(@charity) %></p>
+				<% else %>
+	  			<p><%= link_to "Star This Charity", star_path(@charity) %></p>
+				<% end %>
+			<% end %>
 
+				<% if @wishlist && @wishlist.items.count > 0 %>
+					<% @wishlist.items.each do |item|  %>
+						<p><img src="<%= item.picture_url %>"><a href="<%= @wishlist.original_link %>"><%= item.name %></a>, Price: <%= item.current_price %>, Priority: <%= item.priority %>, Requested Quantity: <%= item.qty_requested %>, Quanity Received: <%= item.qty_received %></p><br>
+					<% end %>
+				<% end %>
         </div>
       </div>
     </div>

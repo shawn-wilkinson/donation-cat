@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
   get 'charities/map' => 'charities#map_locations'
 
+  get 'charities/login' => 'charities#identify', as: "charities_login"
+  post 'charities/login' => 'charities#login'
+  get 'charities/logout' => 'charities#destroy'
+
   resources :categories
 
   resources :users
@@ -23,6 +27,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   #routes for charities/star and charities/map
+
   get 'charities/:id/star' => 'charities#star', as: :star
   get 'charities/:id/recently_visited' => 'charities#recently_visited', as: :recently_visited
 

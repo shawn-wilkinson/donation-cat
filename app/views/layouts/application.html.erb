@@ -34,7 +34,7 @@
   <div id="wrap">
   <div class="ui blue large top fixed inverted menu">
     <div class="ui container">
-      <a class="active item">Home</a>
+      <a href="/" class="item">Home</a>
       <a class="item">Charities</a>
       <a class="item">About</a>
 
@@ -51,9 +51,9 @@
             </div>
           </div>
           </div>
-            <% if current_user %>
+            <% if session[:user_id] %>
             <div class="item">
-              <a href="/users/<%= current_user.slug %>">Welcome, <%= current_user.username %></a>
+              <a href="/users/<%= current_user.slug %>">Profile</a>
             </div>
             <div class="item">
             <a class="ui primary button" href="/logout">Log out</a>
@@ -87,9 +87,14 @@
             <div class="three wide column">
               <h4 class="ui inverted header">About</h4>
               <div class="ui inverted link list">
+                <% if session[:charity_id] %>
+                  <a href="/charities/logout" class="item">Charity Log Out</a>
+                <% else %>
+                  <a href="/charities/login" class="item">Charity login</a>
+                  <a href="/charities/new" class="item">Register Your Charity</a>
+                <% end %>
                 <a href="#" class="item">Sitemap</a>
                 <a href="#" class="item">Contact Us</a>
-                <a href="#" class="item">Religious Ceremonies</a>
                 <a href="#" class="item">Gazebo Plans</a>
               </div>
             </div>

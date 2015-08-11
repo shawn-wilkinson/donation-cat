@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
     @user
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
+      session[:charity_id] = nil
       redirect_to '/'
     else
       render :new
