@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
   root 'welcome#index'
+  get 'welcome/news' => 'welcome#news', as: :news
 
   get 'charities/map' => 'charities#map_locations'
 
