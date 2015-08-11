@@ -63,6 +63,9 @@ class CharitiesController < ApplicationController
     @charity = Charity.find_by(slug: params[:id])
     @wishlist = @charity.wishlists.last
     @wishlist.update_wishlist if @wishlist
+    # if @wishlist && @wishlist.length < 1
+    #   @errors = "This particular Amazon wishlist page uses a less common format and is not renderable at this time."
+    # end
     if current_user.class == User
       current_user.visit_charity(@charity)
     end
