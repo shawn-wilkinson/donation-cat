@@ -46,4 +46,49 @@ class User < ActiveRecord::Base
     self.slug
   end
 
+  def recommended_charity
+    match_weights = User.establish_match_weights(self.id)
+    charity_scores = self.set_charity_scores(match_weights)
+    recommend_charity_id = key_with_highest_value(charity_scores)
+    Charity.find(recommend_charity_id)
+  end
+
+  def key_with_highest_value(hash)
+    max_key = hash.max_by{|k,v| v}
+    return max_key[0]
+  end
+
+
+  def self.establish_match_weights(user_id)
+    selected_user = User.find(user_id)
+    match_scores = []
+    User.all.each do |user|
+      match_num = 0
+      user.charities.each do |charity|
+        if selected_user.charities.include?(charity)
+          match_num = match_num + 1
+        end
+      end
+      match_scores << match_num
+    end
+    return match_scores
+  end
+
+  def set_charity_scores(weights)
+    match_weights = weights
+    charity_scores = {}
+    Charity.all.each{|charity| charity_scores[charity.id] = 0}
+    User.all.each_with_index do |user,index|
+      if self.id != user.id
+        user.charities.each do |charity|
+          unless self.charities.include?(charity)
+            charity_scores[charity.id] += match_weights[index]
+          end
+        end
+      end
+    end
+    return charity_scores
+  end
+
+
 end
