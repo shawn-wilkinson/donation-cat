@@ -2,6 +2,7 @@ class Charity < ActiveRecord::Base
 
 
   validates_presence_of :contact_email, presence: true
+  validates_presence_of :password_digest, presence: true
   
 
   has_many :users, through: :users_charities
