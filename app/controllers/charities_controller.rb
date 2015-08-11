@@ -61,12 +61,6 @@ class CharitiesController < ApplicationController
     redirect_to charity_path(@charity)
   end
 
-
-  private
-
-  def charity_params
-    params.require(:charity).permit(:name, :description, :category, :zip_code, :contact_name, :contact_email, :contact_phone, :street_address, :city, :state, :password, category_ids: [])
-  end
   def recently_visited
   end
 
@@ -85,6 +79,13 @@ class CharitiesController < ApplicationController
       format.json { render json: @charities }
     end
   end
+
+  private
+
+  def charity_params
+    params.require(:charity).permit(:name, :description, :category, :zip_code, :contact_name, :contact_email, :contact_phone, :street_address, :city, :state, :password, category_ids: [])
+  end
+
 
 end
 

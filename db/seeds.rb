@@ -21,20 +21,12 @@ cat << Category.create(name:"Religious")
 cat << Category.create(name:"International")
 
 char = []
-<<<<<<< HEAD
-char << Charity.create(street_address: "351 W. Hubbard Ave.", city: "Chicago", state: "Illinois", zip_code: "60654", name:"Penguin International", description: Faker::Lorem.paragraph, contact_name: Faker::Name.name, contact_email: Faker::Internet.email , password_hash:"password")
-char << Charity.create(street_address: "5200 N Sheridan, Rd.", city: "Chicago", state: "Illinois", zip_code: "60640", name:"Fund For Space Cats", description: Faker::Lorem.paragraph, contact_name: Faker::Name.name, contact_email: Faker::Internet.email , password_hash:"password")
-char << Charity.create(street_address: "400 W Superior St.", city: "Chicago", state: "Illinois", zip_code: "60654", name:"Trees and Love", description: Faker::Lorem.paragraph, contact_name: Faker::Name.name, contact_email: Faker::Internet.email , password_hash:"password")
-char << Charity.create(street_address: "633 Clark St.", city: "Evanston", state: "Illinois", zip_code: "60208", name:"Open Door Mission", description: Faker::Lorem.paragraph, contact_name: Faker::Name.name, contact_email: Faker::Internet.email , password_hash:"password")
-char << Charity.create(street_address: "52 W. Chippewa St.", city: "Buffalo", state: "New York", zip_code: "14202", name:"Island House", description: Faker::Lorem.paragraph, contact_name: Faker::Name.name, contact_email: Faker::Internet.email , password_hash:"password")
-=======
-char << Charity.create(name:"Penguin International", description: Faker::Lorem.paragraph, contact_name: Faker::Name.name, contact_email: Faker::Internet.email , password:"password")
-char << Charity.create(name:"Fund For Space Cats", description: Faker::Lorem.paragraph, contact_name: Faker::Name.name, contact_email: Faker::Internet.email , password:"password")
-char << Charity.create(name:"Trees and Love", description: Faker::Lorem.paragraph, contact_name: Faker::Name.name, contact_email: Faker::Internet.email , password:"password")
-char << Charity.create(name:"Open Door Mission", description: Faker::Lorem.paragraph, contact_name: Faker::Name.name, contact_email: Faker::Internet.email , password:"password")
-char << Charity.create(name:"Island House", description: Faker::Lorem.paragraph, contact_name: Faker::Name.name, contact_email: Faker::Internet.email , password:"password")
+char << Charity.create(street_address: "351 W. Hubbard Ave.", city: "Chicago", state: "Illinois", zip_code: "60654", name:"Penguin International", description: Faker::Lorem.paragraph, contact_name: Faker::Name.name, contact_email: Faker::Internet.email , password:"password")
+char << Charity.create(street_address: "5200 N Sheridan, Rd.", city: "Chicago", state: "Illinois", zip_code: "60640", name:"Fund For Space Cats", description: Faker::Lorem.paragraph, contact_name: Faker::Name.name, contact_email: Faker::Internet.email , password:"password")
+char << Charity.create(street_address: "400 W Superior St.", city: "Chicago", state: "Illinois", zip_code: "60654", name:"Trees and Love", description: Faker::Lorem.paragraph, contact_name: Faker::Name.name, contact_email: Faker::Internet.email , password:"password")
+char << Charity.create(street_address: "633 Clark St.", city: "Evanston", state: "Illinois", zip_code: "60208", name:"Open Door Mission", description: Faker::Lorem.paragraph, contact_name: Faker::Name.name, contact_email: Faker::Internet.email , password:"password")
+char << Charity.create(street_address: "52 W. Chippewa St.", city: "Buffalo", state: "New York", zip_code: "14202", name:"Island House", description: Faker::Lorem.paragraph, contact_name: Faker::Name.name, contact_email: Faker::Internet.email , password:"password")
 
->>>>>>> b38e5d46661d3bb11f92849ab33c35d02e8ec372
 
 # test_charity = Charity.create(name:"Lucky Dog Animal Rescue", description: "Lucky Dog Animal Rescue is a non-profit organization dedicated to rescuing homeless and abandoned animals, primarily dogs from high-kill shelters and owners who can no longer care for them. By working with committed volunteers, foster homes, local veterinarians, trainers, and boarding facilities, we are able to rescue hundreds of animals every year, provide them with loving temporary care, and find them well-matched, carefully screened forever homes. We also serve as a resource to our community and all pet owners by providing education and information on responsible pet ownership, including the importance of spay/neuter, positive behavior training, and good nutrition.", zip_code: "22207", contact_phone: "202.741.5428", password_hash: "password")
 
