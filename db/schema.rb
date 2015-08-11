@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20150810142409) do
     t.string   "zip_code"
     t.string   "password_digest"
     t.string   "slug"
+    t.string   "twitter_handle"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "downcase_name"

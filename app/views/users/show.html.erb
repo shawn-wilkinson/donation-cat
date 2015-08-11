@@ -35,3 +35,7 @@
         </ul>
       <% end %>
       </div>
+
+      <h3>Recommended Charity:</h3>
+      <p><%= link_to @recommended_charity.name, charity_path(@recommended_charity) %></p>
+      <p><%= @recommended_charity.description %></p>
