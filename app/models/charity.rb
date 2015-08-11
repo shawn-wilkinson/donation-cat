@@ -18,14 +18,6 @@ class Charity < ActiveRecord::Base
 
   has_secure_password
 
-  def password=(password)
-    self.password_digest = BCrypt::Password.create(password)
-  end
-
-  def is_password?(password)
-    BCrypt::Password.new(self.password_digest) == password
-  end
-
   def add_downcase_name
     self.downcase_name = name.downcase
   end
@@ -38,6 +30,12 @@ class Charity < ActiveRecord::Base
   def to_param
     self.slug
   end
+
+  # helper_method :current_user
+
+  # def allowed_to_edit?
+  #   current_user == self
+  # end
 
 end
 
