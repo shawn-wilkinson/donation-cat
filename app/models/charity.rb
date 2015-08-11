@@ -16,10 +16,22 @@ class Charity < ActiveRecord::Base
   before_create :add_downcase_name
   after_create :set_slug
 
+  geocoded_by :address_string
+  after_validation :geocode, :if => :address_string_changed?
+
   has_secure_password
+
 
   def add_downcase_name
     self.downcase_name = name.downcase
+  end
+
+  def address_string
+    street_address + ", " + city + ", " + state + " " + zip_code
+  end
+
+  def address_string_changed?
+    street_address_changed? || city_changed? || state_changed? || zip_code_changed?
   end
 
   def set_slug
@@ -30,12 +42,6 @@ class Charity < ActiveRecord::Base
   def to_param
     self.slug
   end
-
-  # helper_method :current_user
-
-  # def allowed_to_edit?
-  #   current_user == self
-  # end
 
 end
 

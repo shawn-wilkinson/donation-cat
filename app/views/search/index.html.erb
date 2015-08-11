@@ -9,14 +9,14 @@
 <% unless @charities.empty? %>
 <p>Charities:</p>
   <% @charities.each do |charity| %>
-   <p><a href="/charities/<%= charity.id %>"><%= charity.name %></a></p>
+   <p><a href="/charities/<%= charity.to_param %>"><%= charity.name %></a></p>
   <% end %>
 <% end %>
 
 <% unless @categories.empty? %>
   <p>Categories</p>
   <% @categories.each do |category| %>
-    <p><a href="/categories/<%= category.id %>"><%= category.name %></a></p>
+    <p><a href="/categories/<%= category.to_param %>"><%= category.name %></a></p>
   <% end %>
 <% end %>
 
