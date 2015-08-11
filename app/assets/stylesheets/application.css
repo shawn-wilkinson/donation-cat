@@ -14,9 +14,6 @@
  *= require_tree .
  *= require_self
  */
-  h1 {
-    font-family: 'Molle', cursive;
-  }
     .hidden.menu {
       display: none;
     }
