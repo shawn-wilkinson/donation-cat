@@ -39,7 +39,6 @@
         version    : 'v2.4'
       });
     };
-
     (function(d, s, id){
        var js, fjs = d.getElementsByTagName(s)[0];
        if (d.getElementById(id)) {return;}
@@ -172,5 +171,6 @@
         </div>
       </div>
     </div>
+    <%= yield :javascripts %>
   </body>
 </html>
