@@ -1,0 +1,17 @@
+<% content_for :javascripts do %>
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js" %>
+  <script type="text/javascript">
+    loadFullMap();
+  </script>
+<% end %>
+<%= stylesheet_link_tag "map.css" %>
+
+<div class="ui vertical stripe segment">
+  <div class="ui middle aligned stackable grid container">
+    <div class="row">
+      <div class="center aligned column">
+        <div id="full-map-canvas"></div>
+      </div>
+    </div>
+  </div>
+</div>

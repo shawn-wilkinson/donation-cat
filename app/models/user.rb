@@ -4,9 +4,6 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   validates :email, presence: true
 
-
-
-
   has_many :users_charities
   has_many :charities, through: :users_charities
   has_many :interests
@@ -20,6 +17,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  # geocoded_by :ipaddress, latitude: :lat, longitude: :lon
+  # after_validation :geocode
 
   def recently_visited_charities
     self.visited_charities.order('created_at DESC').uniq.limit(5)
@@ -46,7 +45,5 @@ class User < ActiveRecord::Base
   def to_param
     self.slug
   end
-
-
 
 end
