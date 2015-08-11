@@ -1,5 +1,5 @@
 class Category < ActiveRecord::Base
-	
+
 
   has_many :categorizations
   has_many :charities, through: :categorizations
@@ -14,12 +14,16 @@ class Category < ActiveRecord::Base
   end
 
   def set_slug
-    self.slug = self.name.downcase.split.join("-") + "-" + self.id.to_s
+    self.slug = self.normalized_name + "-" + self.id.to_s
     self.save
   end
 
   def to_param
     self.slug
+  end
+
+  def normalized_name
+    self.name.downcase.split.join("-")
   end
 
 end
