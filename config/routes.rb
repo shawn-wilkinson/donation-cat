@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
   root 'welcome#index'
+  get 'welcome/news' => 'welcome#news', as: :news
 
   get 'charities/login' => 'charities#identify', as: "charities_login"
   post 'charities/login' => 'charities#login'
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   get '/about' => 'welcome#about'
 
-  
+
   get 'charities/:id/star' => 'charities#star', as: :star
   get 'charities/:id/recently_visited' => 'charities#recently_visited', as: :recently_visited
 

@@ -7,6 +7,21 @@
 
     <%= csrf_meta_tags %>
 
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("feeds", "1");
+
+      function OnLoad() {
+        var feedControl = new google.feeds.FeedControl();
+        feedControl.addFeed("https://www.realwire.com/rss/?id=531");
+        feedControl.addFeed("https://www.realwire.com/rss/?id=532");
+        feedControl.addFeed("https://www.realwire.com/rss/?id=575");
+        feedControl.addFeed("http://nonprofitquarterly.org/feed/");
+        feedControl.draw(document.getElementById("google_feeds"));
+      }
+      google.setOnLoadCallback(OnLoad);
+    </script>
+
     <meta property="og:url"           content="http://www.donationcat.com" />
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="Donation Cat" />
