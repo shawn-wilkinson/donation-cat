@@ -1,35 +1,37 @@
 <br>
 <br>
 <br>
-<br>
-
-
-
-<h1><%= @user.username.capitalize %>'s Profile</h1>
-
-<% if @starred_charities %>
-  <h3>Starred Charities</h3
-  <ul>
-    <% @starred_charities.each do |charity| %>
-      <li> <%= link_to charity.name, charity_path(charity) %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<% if @visited_charities %>
-  <h3>Recently Viewed Charities</h3>
-  <ul>
-    <% @visited_charities.each do |charity| %>
-      <li> <%= link_to charity.name, charity_path(charity) %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<% if @categories %>
-  <h3>Your Interest Categories</h3>
-  <ul>
-    <% @categories.each do |category| %>
-      <li> <%= link_to category.name, category_path(category) %></li>
-    <% end %>
-  </ul>
-<% end %>
+      <h2 class="ui icon header">
+        <i class="user icon"></i>
+      <h1><%= @user.username.capitalize %>'s Profile</h1>
+      <div class="ui grid">
+      <div class="six wide column">
+      <% if @starred_charities %>
+        <h3>Starred Charities</h3
+        <ul>
+          <% @starred_charities.each do |charity| %>
+             <%= link_to charity.name, charity_path(charity) %><p>
+          <% end %>
+        </ul>
+      <% end %>
+      </div>
+      <div class="four wide column">
+      <% if @categories %>
+        <h3>Your Interest Categories</h3>
+        <ul>
+          <% @categories.each do |category| %>
+            <%= link_to category.name, category_path(category) %><p>
+          <% end %>
+        </ul>
+      <% end %>
+      </div>
+      <div class="six wide column">
+      <% if @visited_charities %>
+        <h3>Recently Viewed Charities</h3>
+        <ul>
+          <% @visited_charities.each do |charity| %>
+            <p><%= link_to charity.name, charity_path(charity) %>
+          <% end %>
+        </ul>
+      <% end %>
+      </div>

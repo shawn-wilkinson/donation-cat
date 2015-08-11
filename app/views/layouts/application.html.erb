@@ -2,16 +2,31 @@
 <html>
   <head>
     <title>Donation Cat</title>
+     <link href='http://fonts.googleapis.com/css?family=Molle:400italic' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    'application', media: 'all' %>
 
     <%= csrf_meta_tags %>
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("feeds", "1");
+
+      function OnLoad() {
+        var feedControl = new google.feeds.FeedControl();
+        feedControl.addFeed("https://www.realwire.com/rss/?id=531");
+        feedControl.addFeed("https://www.realwire.com/rss/?id=532");
+        feedControl.addFeed("https://www.realwire.com/rss/?id=575");
+        feedControl.addFeed("http://nonprofitquarterly.org/feed/");
+        feedControl.draw(document.getElementById("google_feeds"));
+      }
+      google.setOnLoadCallback(OnLoad);
+    </script>
 
     <meta property="og:url"           content="http://www.donationcat.com" />
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="Donation Cat" />
     <meta property="og:description"   content="Find and connect with charities near you" />
     <meta property="og:image"         content="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ8QHUUNeXtf6aPDTvIZQG485DTeClzpGiRTu3qYIH1V1W4VWEe" />
-    <link href='http://fonts.googleapis.com/css?family=Molle:400italic' rel='stylesheet' type='text/css'>
   </head>
   <body class="<%= params[:action] %> <%= params[:controller] %>">
     <div id="fb-root"></div>
@@ -82,21 +97,22 @@
   <%= yield %>
     </div>
   </div>
+</div>
     <div class="ui inverted vertical fixed footer segment">
         <div class="ui container">
           <div class="ui stackable inverted divided equal height stackable grid">
             <div class="three wide column">
-              <h4 class="ui inverted header">About</h4>
+              <h4 class="ui inverted header">Charity Menu</h4>
               <div class="ui inverted link list">
                 <% if session[:charity_id] %>
+                  <a href="/charities/<%= current_user.to_param %>/profile" class="item">Charity Dashboard</a>
                   <a href="/charities/logout" class="item">Charity Log Out</a>
                 <% else %>
                   <a href="/charities/login" class="item">Charity login</a>
                   <a href="/charities/new" class="item">Register Your Charity</a>
                 <% end %>
-                <a href="#" class="item">Sitemap</a>
                 <a href="#" class="item">Contact Us</a>
-                <a href="#" class="item">Gazebo Plans</a>
+
               </div>
             </div>
             <div class="three wide column">

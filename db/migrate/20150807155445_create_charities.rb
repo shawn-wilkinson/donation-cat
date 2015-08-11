@@ -10,8 +10,9 @@ class CreateCharities < ActiveRecord::Migration
       t.string :city
       t.string :state
       t.string :zip_code
-      t.string :password_digest      
+      t.string :password_digest
       t.string :slug
+      t.string :twitter_handle
 
 
       t.timestamps null: false
