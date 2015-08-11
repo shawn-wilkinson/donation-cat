@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20150810142409) do
     t.string   "zip_code"
     t.string   "password_digest"
     t.string   "slug"
+    t.string   "twitter_handle"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "downcase_name"
@@ -108,7 +109,6 @@ ActiveRecord::Schema.define(version: 20150810142409) do
   create_table "wishlists", force: :cascade do |t|
     t.integer  "charity_id"
     t.string   "name"
-    t.string   "link"
     t.string   "original_link"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false

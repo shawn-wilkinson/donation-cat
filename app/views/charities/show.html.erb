@@ -1,5 +1,4 @@
 <% content_for :javascripts do %>
-  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js" %>
   <script type="text/javascript">
     loadMap();
   </script>
@@ -11,6 +10,10 @@
     <div class="ui middle aligned stackable grid container">
       <div class="row">
         <div class="center aligned column">
+
+        <% if @errors %>
+       	 <p><%= @errors  %></p>
+        <% end %>
 
            <h1><%= @charity.name %></h1>
 			<p> <%= @charity.description %></p>
