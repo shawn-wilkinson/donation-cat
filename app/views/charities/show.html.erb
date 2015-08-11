@@ -7,10 +7,13 @@
 			<p> <%= @charity.description %></p>
 			<p><%= @charity.street_address %>, <%= @charity.city %>, <%= @charity.state %>, <%= @charity.zip_code %> </p>
 
-			<% if @wishlist && @wishlist.items.count > 0 %>
-				<p><%= @charity.name %>'s Wishlist:</p>
-			<% else %>
-				<%= link_to "Add Amazon Wishlist", new_charity_wishlist_path(@charity) %>
+		
+			<% if @charity == current_user %>
+				<% if @wishlist && @wishlist.items.count > 0 %>
+					<p>Amazon Wishlist:</p>
+				<% else %>
+					<%= link_to "Add Amazon Wishlist", new_charity_wishlist_path(@charity) %>
+				<% end %>
 			<% end %>
 
 			<% if session[:user_id] %>
