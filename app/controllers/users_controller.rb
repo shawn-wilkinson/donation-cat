@@ -22,6 +22,7 @@ class UsersController < ApplicationController
       @starred_charities = current_user.charities
       @visited_charities = current_user.recently_visited_charities
       @categories = current_user.categories
+      @recommended_charity = current_user.recommended_charity
     else
       redirect_to root_path
     end
