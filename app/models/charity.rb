@@ -43,12 +43,6 @@ class Charity < ActiveRecord::Base
     self.slug
   end
 
-  # helper_method :current_user
-
-  # def allowed_to_edit?
-  #   current_user == self
-  # end
-
 end
 
 
