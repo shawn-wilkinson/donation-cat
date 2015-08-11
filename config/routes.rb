@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
+  get 'charities/map' => 'charities#map_locations'
 
   resources :categories
 

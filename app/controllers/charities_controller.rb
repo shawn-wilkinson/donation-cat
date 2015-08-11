@@ -32,4 +32,14 @@ class CharitiesController < ApplicationController
     end
   end
 
+  def map_locations
+    # ip_addr = request.location.data["ip"]
+    @charities = Charity.all.select { |charity| charity.latitude != nil }
+    respond_to do |format|
+      format.html
+      format.json { render json: @charities }
+      # format.json { render :json => { :charities => @charities, :location => @user } }
+    end
+  end
+
 end

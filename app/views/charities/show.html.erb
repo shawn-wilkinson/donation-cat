@@ -6,10 +6,6 @@
 <% end %>
 <%= stylesheet_link_tag "map.css" %>
 
-<h1 id="charity-name"><%= @charity.name %></h1>
-<p> <%= @charity.description %></p>
-<p><%= @charity.name%>'s Wishlist:</p>
-
   <div class="ui vertical stripe segment">
     <div class="ui middle aligned stackable grid container">
       <div class="row">
@@ -18,11 +14,13 @@
     			<p> <%= @charity.description %></p>
     			<p><%= @charity.name%>'s Wishlist:</p>
 
-    			<% if current_user.charities.include?(@charity) %>
-    			  <p><%= link_to "Un-Star This Charity", star_path(@charity) %></p>
-    			<% else %>
-    			  <p><%= link_to "Star This Charity", star_path(@charity) %></p>
-    			<% end %>
+          <% if current_user %>
+      			<% if current_user.charities.include?(@charity) %>
+      			  <p><%= link_to "Un-Star This Charity", star_path(@charity) %></p>
+      			<% else %>
+      			  <p><%= link_to "Star This Charity", star_path(@charity) %></p>
+      			<% end %>
+          <% end %>
 
     			<% @wishlist.items.each do |item|  %>
       			<p><img src="<%= item.picture_url %>"><a href="<%= @wishlist.original_link %>"><%= item.name %></a>Price: <%= item.current_price %>    Priority: <%= item.priority %>    Requested Quantity: <%= item.qty_requested %>    Quanity Received: <%= item.qty_received %></p><br>
