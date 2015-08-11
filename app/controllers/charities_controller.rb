@@ -81,16 +81,31 @@ class CharitiesController < ApplicationController
     redirect_to charity_path(@charity)
   end
 
+  def recently_visited
+  end
+
+  def map_location
+    @charity = Charity.find_by(slug: params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render json: @charity }
+    end
+  end
+
+  def map_locations
+    @charities = Charity.all.select { |charity| charity.latitude != nil }
+    respond_to do |format|
+      format.html
+      format.json { render json: @charities }
+    end
+  end
 
   private
 
   def charity_params
     params.require(:charity).permit(:name, :description, :category, :zip_code, :contact_name, :contact_email, :contact_phone, :street_address, :city, :state, :password, category_ids: [])
   end
-  def recently_visited
 
-
-  end
 
 end
 
