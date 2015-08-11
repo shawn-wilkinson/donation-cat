@@ -47,10 +47,14 @@ class User < ActiveRecord::Base
   end
 
   def recommended_charity
-    match_weights = User.establish_match_weights(self.id)
-    charity_scores = self.set_charity_scores(match_weights)
-    recommend_charity_id = key_with_highest_value(charity_scores)
-    Charity.find(recommend_charity_id)
+    if self.charities.length > 1
+      match_weights = User.establish_match_weights(self.id)
+      charity_scores = self.set_charity_scores(match_weights)
+      recommend_charity_id = key_with_highest_value(charity_scores)
+      Charity.find(recommend_charity_id)
+    else
+      Charity.find(rand(Charity.all.length) + 1)
+    end
   end
 
   def key_with_highest_value(hash)
