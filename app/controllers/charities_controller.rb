@@ -21,11 +21,26 @@ class CharitiesController < ApplicationController
     end
   end
 
+  def edit
+    @charity = Charity.find_by(slug: params[:id])
+    redirect_to '/' if current_user != @charity
+  end
+
+  def update
+    @charity = Charity.find_by(slug: params[:id])
+    if @charity.update(charity_params)
+      redirect_to '/'
+    else
+      @errors = "There was a problem updating your information, please make sure all fields are entered."
+      render :edit
+    end
+
+  end
+
   def destroy
     session[:charity_id] = nil
     redirect_to '/'
   end
-
 
   def create
     @charity = Charity.new(charity_params)
@@ -37,6 +52,11 @@ class CharitiesController < ApplicationController
       @error = "There was a problem entering in your information, please try again."
       render :new
     end
+  end
+
+  def profile
+    @charity = Charity.find_by(slug: params[:id])
+    redirect_to '/' if current_user != @charity
   end
 
   def show
