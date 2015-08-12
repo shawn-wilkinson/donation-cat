@@ -1,18 +1,6 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<h1>Add your Amazon wishlist:</h1>
-
 <%= form_for [@charity, @wishlist] do |f| %>
   <h3><%= f.label :amazon_wishlist_url %>:</h3>
   <%= f.text_field :original_link %><br />
 
   <%= f.submit %>
-<% end %>
-
-
-<% if @error %>
-  <p><%= @error %></p>
 <% end %>
