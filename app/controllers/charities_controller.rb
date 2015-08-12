@@ -108,10 +108,12 @@ class CharitiesController < ApplicationController
   private
 
   def charity_params
-    params.require(:charity).permit(:name, :description, :category, :zip_code, :contact_name, :contact_email, :contact_phone, :street_address, :city, :state, :password, category_ids: [])
+    params.require(:charity).permit(:name, :description, :category, :zip_code, :contact_name, :twitter_handle, :donation_page, :website, :contact_email, :contact_phone, :street_address, :city, :state, :password, category_ids: [])
   end
 
 
 end
+
+   
 
  
