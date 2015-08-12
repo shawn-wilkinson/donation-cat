@@ -1,17 +1,22 @@
 
 $(document).ready(function() {
 
-	console.log("hey");
+	$(document).on("click",".wishlist-class",function(event){
+		event.preventDefault();
 
-	$(document).on("click",".wishlist-class",function(){
+		var that = $(this);
+		var request = $.ajax({
+    url: $(this).attr('ajax_path'), 
+    method: 'GET'
+    
+  });
 
-
-//   var id = $(this).data("id");
-//   var href = $(this).data("href");
-//   var count = $(this).data("count");
-//   var element = "<a href='" +href+ "' data-remote=true><span class='ui blue small icon button scheduled-count schedule-button leads'>" +count+ "</span></a>";
-//   $("#schedule_call_"+id).html(element);
-	});
+		request.done(function(response){
+			console.log("shazaam");
+			console.log(response);
+			that.hide();
+			$("#ajaxify").prepend(response);
+		});
 
   $("#star").on('click', function(event){
     event.preventDefault();

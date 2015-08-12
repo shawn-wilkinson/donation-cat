@@ -8,6 +8,15 @@ class WishlistsController < ApplicationController
 	def new
 		@charity = Charity.find_by(slug: params[:charity_id])
 		@wishlist = @charity.wishlists.new
+		respond_to do |format|
+      format.html do
+      	if request.xhr?
+      		render :partial => "wishlists/new.html.erb", layout: false
+      	else
+      		render "wishlists/new"
+      	end 
+      end  
+    end
 	end
 
 	def create

@@ -55,12 +55,14 @@
       <% end %>
       </div>
       <div class="four wide column">
-      
-        <% if @wishlist && @wishlist.items.count > 0 %>
-          <h3><%= link_to "Update Amazon Wishlist", new_charity_wishlist_path(@charity), class: "wishlist-class" %></h3>
-          <% else %>
-          <h3><%= link_to "Add Amazon Wishlist", new_charity_wishlist_path(@charity), class: "wishlist-class" %></h3>
-        <% end %>
+        <div id="ajaxify">
+
+          <% if @wishlist && @wishlist.items.count > 0 %>
+            <h3><%= link_to "Update Amazon Wishlist", new_charity_wishlist_path(@charity), class: "wishlist-class", :ajax_path => new_charity_wishlist_path(@charity) %></h3>
+            <% else %>
+            <h3><%= link_to "Add Amazon Wishlist", new_charity_wishlist_path(@charity), class: "wishlist-class", :ajax_path => new_charity_wishlist_path(@charity) %></h3>
+          <% end %>
+        </div>
        
       </div>
       <div class="six wide column">
