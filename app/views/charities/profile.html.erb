@@ -1,16 +1,18 @@
 <br>
 <br>
 <br>
+<br>
+<br>
       <h2 class="ui icon header">
-        <i class="cube icon"></i>
-      <h1><%= @charity.name.capitalize %>'s Dashboard</h1>
+        <i class="dashboard icon"></i>
+      <h1><%= @charity.name %>'s Dashboard</h1>
       <br>
       <br>
       <br>
       <div class="ui grid">
       <div class="six wide column">
       <% if true %>
-        <h3>Edit Charity Information</h3
+        <h3> Charity Information</h3
         <ul>
          <%= form_for @charity, :html => {:class => "ui form"} do |f| %>
                 <%= f.label :charity_name %>:

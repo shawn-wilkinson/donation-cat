@@ -13,9 +13,13 @@ class CreateCharities < ActiveRecord::Migration
       t.string :password_digest
       t.string :slug
       t.string :twitter_handle
-
+      t.string :website
+      t.string :donation_page
 
       t.timestamps null: false
     end
   end
 end
+
+
+
