@@ -6,21 +6,51 @@
 <%= stylesheet_link_tag "map.css" %>
 
 
-  <div class="ui vertical stripe segment">
-    <div class="ui middle aligned stackable grid container">
-      <div class="row">
-        <div class="center aligned column">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+    <div class="ui grid">
+      
+        <div class="eight wide left aligned column">
+        <div class="left floated">
 
         <% if @errors %>
        	 <p><%= @errors  %></p>
         <% end %>
-
+	
            <h1><%= @charity.name %></h1>
-			<p> <%= @charity.description %></p>
-			<p><%= @charity.street_address %>, <%= @charity.city %>, <%= @charity.state %>, <%= @charity.zip_code %> </p>
-
-
+				<div class="charity-info"
+           <p><%= @charity.street_address %>, <%= @charity.city %>, <%= @charity.state %>, <%= @charity.zip_code %> </p>
+           </div>
+           
 		  <div id="map-canvas"></div>
+
+	
+      </div>
+    </div>
+
+
+
+	
+   
+      
+        <div class="eight wide left aligned column">
+        <div class="right floated">
+			<br>
+			<br>
+	
+			<h3>Charity Overview:</h3>
+			<div class="charity-info"
+			<p> <%= @charity.description %></p>
+			
+
+
 			
       
 			<% if session[:user_id] %>
@@ -30,16 +60,96 @@
 	  			<p><%= link_to "Star This Charity", star_path(@charity) %></p>
 				<% end %>
 			<% end %>
+			<br>
+				
 
+
+
+				<a href="https://donatenow.networkforgood.org/luckydoganimalrescue"><button class="ui right labeled icon button">
+  <i class="right arrow icon"></i>
+  Visit <%= @charity.name %>
+</button></a>
+
+			
+
+</div>
+		</div>
+      </div>
+      </div>
+    
+   <br>
+   <br>
+
+
+	<% if @wishlist && @wishlist.items.count > 0 %>
+   <div class="ui grid">
+      
+        <div class="sixteen wide left aligned column">
+        <div class="left floated">
+
+   <h3>Amazon Wishlist:</h3>
+        <table class="ui very basic collapsing celled table">
+        
+  <thead>
+    <tr><th></th>
+    <th class="six wide">Item</th>
+    <th>Price</th>
+    <th>Priority</th>
+    <th>Requested Qty</th>
+    <th>Qty Received</th>
+  </tr></thead>
+
+  <tbody>
+  
+
+		
+					<% @wishlist.items.each do |item|  %>
+
+
+    <tr>
+      <td>
+        <img src="<%= item.picture_url %>">
+      </td>
+      <td>
+        <a href="<%= @wishlist.original_link %>"><%= item.name %></a>
+      </td>
+      <td>
+        <%= item.current_price %>
+      </td>
+      <td>
+        <%= item.priority %>
+      </td>
+      <td>
+      	<%= item.qty_requested %>
+      </td>
+      <td>
+      	<%= item.qty_received %>
+      </td>
+    </tr>
+
+
+    
+
+  
+  <% end %>
+  <% end %>
+
+  </tbody>
+
+</table>
+
+
+
+	<% if false %>
 				<% if @wishlist && @wishlist.items.count > 0 %>
 					<% @wishlist.items.each do |item|  %>
 						<p><img src="<%= item.picture_url %>"><a href="<%= @wishlist.original_link %>"><%= item.name %></a>, Price: <%= item.current_price %>, Priority: <%= item.priority %>, Requested Quantity: <%= item.qty_requested %>, Quanity Received: <%= item.qty_received %></p><br>
 					<% end %>
 				<% end %>
-        </div>
-      </div>
-    </div>
-  </div>
+
+				<% end %>
 </div>
+		</div>
+      </div>
 
-
+        

@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20150810142409) do
     t.string   "password_digest"
     t.string   "slug"
     t.string   "twitter_handle"
+    t.string   "website"
+    t.string   "donation_page"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "downcase_name"

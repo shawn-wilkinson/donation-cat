@@ -14,9 +14,20 @@
  *= require_tree .
  *= require_self
  */
+
+
+.charity-info {
+  font-size: 17px;
+  font-family: sans-serif;
+
+}
+
+
+
  #mainlogo {
   height: 550px;
  }
+
  #piper {
   font-size: 30px;
  }
