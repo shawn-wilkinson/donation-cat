@@ -64,11 +64,14 @@
 				
 
 
-
-				<a href="https://donatenow.networkforgood.org/luckydoganimalrescue"><button class="ui right labeled icon button">
-  <i class="right arrow icon"></i>
-  Visit <%= @charity.name %>
-</button></a>
+      <% if @charity.website %>
+    		<a href="<%= @charity.website %>">
+          <button class="ui right labeled icon button">
+            <i class="right arrow icon"></i>
+            Visit <%= @charity.name %>
+          </button>
+        </a>
+      <% end %>
 
 			
 
