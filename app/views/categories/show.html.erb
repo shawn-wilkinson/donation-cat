@@ -3,11 +3,14 @@
       <div class="row">
         <div class="center aligned column">
         	<h1> <%= @category.name %> </h1>
-			<ul>
-			  <% @charities.each do |charity| %>
-			    <li> <%= link_to charity.name, charity_path(charity) %></li>
-			  <% end %>
-			</ul>
+			
+        <table class="ui teal table">
+			   <% @charities.each do |charity| %>
+			     <tr><td><h2><%= link_to charity.name, charity_path(charity) %></h2></td></tr>
+			   <% end %>
+		
+        </table>
+
         </div>
       </div>
     </div>
