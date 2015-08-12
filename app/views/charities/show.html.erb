@@ -62,6 +62,18 @@
 	  			<p><%= link_to "Star This Charity", star_path(@charity) %></p>
 				<% end %>
 			<% end %>
+			<br>
+				
+
+
+
+				<a href="https://donatenow.networkforgood.org/luckydoganimalrescue"><button class="ui right labeled icon button">
+  <i class="right arrow icon"></i>
+  Visit <%= @charity.name %>
+</button></a>
+
+			
+
 </div>
 		</div>
       </div>
@@ -73,6 +85,47 @@
       
         <div class="sixteen wide left aligned column">
         <div class="left floated">
+
+        <table class="ui celled padded table">
+        <% if @wishlist && @wishlist.items.count > 0 %>
+					<% @wishlist.items.each do |item|  %>
+  <thead>
+    <tr><th>Picture</th>
+    <th>Item</th>
+    <th>Price</th>
+    <th>Priority</th>
+    <th>Requested Qty</th>
+    <th>Qty Received</th>
+  </tr></thead>
+  <tbody>
+    <tr>
+      <td>
+        <img src="<%= item.picture_url %>">
+      </td>
+      <td>
+        <a href="<%= @wishlist.original_link %>"><%= item.name %></a>
+      </td>
+      <td>
+        <%= item.current_price %>
+      </td>
+      <td>
+        <%= item.priority %>
+      </td>
+      <td>
+      	<%= item.qty_requested %>
+      </td>
+      <td>
+      	<%= item.qty_received %>
+      </td>
+    </tr>
+    
+  </tbody>
+  <% end %>
+  <% end %>
+</table>
+
+
+
 	<% if false %>
 				<% if @wishlist && @wishlist.items.count > 0 %>
 					<% @wishlist.items.each do |item|  %>
