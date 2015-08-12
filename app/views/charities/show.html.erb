@@ -26,9 +26,9 @@
 
            <h1><%= @charity.name %><% if session[:user_id] %>
         <% if current_user.charities.include?(@charity) %>
-          <a href="/charities/<%= @charity.to_param %>/star"><i class="large yellow star icon"></i></a>
+          <a id="star" href="/charities/<%= @charity.to_param %>/star"><i id="star_icon" class="large yellow star icon"></i></a>
         <% else %>
-          <a href="/charities/<%= @charity.to_param %>/star"><i class="large yellow empty star icon"></i></a>
+          <a id="star" href="/charities/<%= @charity.to_param %>/star"><i id="star_icon" class="large yellow empty star icon"></i></a>
         <% end %>
       <% end %></h1>
 				<div class="charity-info"
@@ -63,11 +63,14 @@
 
 
 
-
-				<a href="https://donatenow.networkforgood.org/luckydoganimalrescue"><button class="ui right labeled icon button">
-  <i class="right arrow icon"></i>
-  Visit <%= @charity.name %>
-</button></a>
+      <% if @charity.website %>
+    		<a href="<%= @charity.website %>">
+          <button class="ui right labeled icon button">
+            <i class="right arrow icon"></i>
+            Visit <%= @charity.name %>
+          </button>
+        </a>
+      <% end %>
 
 
 
