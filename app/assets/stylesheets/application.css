@@ -27,7 +27,7 @@
   position: absolute;
   top:0;
   height: 160px;
-  width: 300px;
+  width: 275px;
   left:0;
   opacity: .8;
   transition: opacity .25s ease-in-out;
@@ -45,6 +45,8 @@
   line-height: 160px;
   vertical-align: center;
   z-index: 10;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
 }
 .link-category{
   text-align: center;
