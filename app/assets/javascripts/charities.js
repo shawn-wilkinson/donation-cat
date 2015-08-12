@@ -20,6 +20,7 @@ $(document).ready(function() {
     var request = $.ajax({url: route});
     request.done(function(response){
       star.toggleClass("empty");
+      star.transition('tada');
     });
   });
 
