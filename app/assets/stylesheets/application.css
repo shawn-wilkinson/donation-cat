@@ -15,12 +15,18 @@
  *= require_self
  */
 
+
 .charity-info {
   font-size: 17px;
   font-family: sans-serif;
 
 }
 
+
+
+ #mainlogo {
+  height: 550px;
+ }
 
  #piper {
   font-size: 30px;
@@ -32,7 +38,7 @@
   position: absolute;
   top:0;
   height: 160px;
-  width: 300px;
+  width: 275px;
   left:0;
   opacity: .8;
   transition: opacity .25s ease-in-out;
@@ -50,37 +56,14 @@
   line-height: 160px;
   vertical-align: center;
   z-index: 10;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
 }
 .link-category{
   text-align: center;
 }
 
-/*.thumb {
-    position: relative;
-    width: 150px;
-    height: 100px;
-    border: 2px dashed #444;
-    margin: 10px;
-    float: left;
-}
-.categorytext, .categorytext-js {
-    display: none;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background: #999;
-    background: rgba(0,0,0,0.3);
-    text-align: center;
-}
-.categorypic:hover {
 
-    -webkit-transition: opacity 3s ease-in-out;
-    -moz-transition: opacity 3s ease-in-out;
-    -ms-transition: opacity 3s ease-in-out;
-    -o-transition: opacity 3s ease-in-out;
-     opacity: 1;
-}*/
 
     .hidden.menu {
       display: none;
@@ -97,7 +80,7 @@
       margin-left: 0.5em;
     }
     .masthead h1.ui.header {
-      margin-top: 3em;
+      margin-top: 1.5em;
       margin-bottom: 0em;
       font-size: 4em;
       font-weight: normal;
@@ -115,7 +98,7 @@
     }
     .ui.vertical.stripe .button + h3,
     .ui.vertical.stripe p + h3 {
-      margin-top: 3em;
+      margin-top: 2em;
     }
     .ui.vertical.stripe .floated.image {
       clear: both;
@@ -178,7 +161,7 @@ footer {
       }
       .masthead h1.ui.header {
         font-size: 2em;
-        margin-top: 1.5em;
+        margin-top: 1.3em;
       }
       .masthead h2 {
         margin-top: 0.5em;
