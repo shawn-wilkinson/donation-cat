@@ -1,4 +1,4 @@
-<% content_for :javascripts do %>  
+<% content_for :javascripts do %>
   <script type="text/javascript">
     loadMap();
   </script>
@@ -16,52 +16,51 @@
 
 
     <div class="ui grid">
-      
+
         <div class="eight wide left aligned column">
         <div class="left floated">
 
         <% if @errors %>
        	 <p><%= @errors  %></p>
         <% end %>
-	
-           <h1><%= @charity.name %></h1>
+
+           <h1><%= @charity.name %><% if session[:user_id] %>
+        <% if current_user.charities.include?(@charity) %>
+          <a href="/charities/<%= @charity.to_param %>/star"><i class="large yellow star icon"></i></a>
+        <% else %>
+          <a href="/charities/<%= @charity.to_param %>/star"><i class="large yellow empty star icon"></i></a>
+        <% end %>
+      <% end %></h1>
 				<div class="charity-info"
            <p><%= @charity.street_address %>, <%= @charity.city %>, <%= @charity.state %>, <%= @charity.zip_code %> </p>
            </div>
-           
+
 		  <div id="map-canvas"></div>
 
-	
+
       </div>
     </div>
 
 
 
-	
-   
-      
+
+
+
         <div class="eight wide left aligned column">
         <div class="right floated">
 			<br>
 			<br>
-	
+
 			<h3>Charity Overview:</h3>
 			<div class="charity-info"
 			<p> <%= @charity.description %></p>
-			
 
 
-			
-      
-			<% if session[:user_id] %>
-				<% if current_user.charities.include?(@charity) %>
-	  			<p><%= link_to "Un-Star This Charity", star_path(@charity) %></p>
-				<% else %>
-	  			<p><%= link_to "Star This Charity", star_path(@charity) %></p>
-				<% end %>
-			<% end %>
-			<br>
-				
+
+
+
+
+
 
 
 
@@ -70,26 +69,26 @@
   Visit <%= @charity.name %>
 </button></a>
 
-			
+
 
 </div>
 		</div>
       </div>
       </div>
-    
+
    <br>
    <br>
 
 
 	<% if @wishlist && @wishlist.items.count > 0 %>
    <div class="ui grid">
-      
+
         <div class="sixteen wide left aligned column">
         <div class="left floated">
 
    <h3>Amazon Wishlist:</h3>
         <table class="ui very basic collapsing celled table">
-        
+
   <thead>
     <tr><th></th>
     <th class="six wide">Item</th>
@@ -100,9 +99,9 @@
   </tr></thead>
 
   <tbody>
-  
 
-		
+
+
 					<% @wishlist.items.each do |item|  %>
 
 
@@ -128,9 +127,9 @@
     </tr>
 
 
-    
 
-  
+
+
   <% end %>
   <% end %>
 
@@ -152,4 +151,4 @@
 		</div>
       </div>
 
-        
+
