@@ -3,12 +3,12 @@ $(document).ready(function() {
 
 	$(document).on("click",".wishlist-class",function(event){
 		event.preventDefault();
-
+	
 		var that = $(this);
 		var request = $.ajax({
     url: $(this).attr('ajax_path'), 
-    method: 'GET'
-    
+    method: 'GET'  
+
   });
 
 		request.done(function(response){
@@ -27,9 +27,5 @@ $(document).ready(function() {
       star.toggleClass("empty");
     });
   });
-
-
-
-
 
 });

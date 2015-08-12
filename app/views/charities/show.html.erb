@@ -64,7 +64,7 @@
 
 
       <% if @charity.website %>
-    		<a href="<%= @charity.website %>">
+    		<a target="_blank" href="<%= @charity.website %>">
           <button class="ui right labeled icon button">
             <i class="right arrow icon"></i>
             Visit <%= @charity.name %>
@@ -113,7 +113,7 @@
         <img src="<%= item.picture_url %>">
       </td>
       <td>
-        <a href="<%= @wishlist.original_link %>"><%= item.name %></a>
+        <a target="_blank" href="<%= @wishlist.original_link %>"><%= item.name %></a>
       </td>
       <td>
         <%= item.current_price %>
@@ -129,10 +129,6 @@
       </td>
     </tr>
 
-
-
-
-
   <% end %>
   <% end %>
 
@@ -142,14 +138,7 @@
 
 
 
-	<% if false %>
-				<% if @wishlist && @wishlist.items.count > 0 %>
-					<% @wishlist.items.each do |item|  %>
-						<p><img src="<%= item.picture_url %>"><a href="<%= @wishlist.original_link %>"><%= item.name %></a>, Price: <%= item.current_price %>, Priority: <%= item.priority %>, Requested Quantity: <%= item.qty_requested %>, Quanity Received: <%= item.qty_received %></p><br>
-					<% end %>
-				<% end %>
 
-				<% end %>
 </div>
 		</div>
       </div>
