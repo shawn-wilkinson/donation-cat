@@ -61,6 +61,9 @@ function generateFullMap(charities){
                     center: latlngCenter,
                   }
   map = new google.maps.Map(document.getElementById("full-map-canvas"), myOptions);
+  var infoWindow = new google.maps.InfoWindow({
+                content: ""
+            });
   for(var i=0; i<charities.length; i++){
     var latlong = { lat: charities[i]["latitude"], lng: charities[i]["longitude"] };
     var name = charities[i]["name"];
@@ -69,15 +72,10 @@ function generateFullMap(charities){
                                       map: map,
                                       position: latlong
                                       });
-    function addInfoWindow(marker, message) {
-      var infoWindow = new google.maps.InfoWindow({
-                content: message
-            });
-            google.maps.event.addListener(marker, 'click', function () {
-                infoWindow.open(map, marker);
-            });
-        } 
-    addInfoWindow(marker, message);
+    google.maps.event.addListener(marker, 'click', function(){
+      infoWindow.setContent(message);
+      infoWindow.open(map, this);
+    });
   }
 }
 
@@ -88,7 +86,7 @@ $(document).ready(function(){
       $("#error-container").html("");
       var zip = $('input[name="search-zip"]').val()
       if(zip.length === 5){
-        centerOnZip(zip);  
+        centerOnZip(zip);
       } else {
         var error = "Please enter a valid 5-digit zip code.";
         $("#error-container").html(error);
@@ -98,7 +96,7 @@ $(document).ready(function(){
 })
 
 
-  
+
 
 
 
