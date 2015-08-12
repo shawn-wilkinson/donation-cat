@@ -6,21 +6,53 @@
 <%= stylesheet_link_tag "map.css" %>
 
 
-  <div class="ui vertical stripe segment">
-    <div class="ui middle aligned stackable grid container">
-      <div class="row">
-        <div class="center aligned column">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+    <div class="ui grid">
+      
+        <div class="eight wide left aligned column">
+        <div class="left floated">
 
         <% if @errors %>
        	 <p><%= @errors  %></p>
         <% end %>
-
+	
            <h1><%= @charity.name %></h1>
-			<p> <%= @charity.description %></p>
-			<p><%= @charity.street_address %>, <%= @charity.city %>, <%= @charity.state %>, <%= @charity.zip_code %> </p>
-
-
+				<div class="charity-info"
+           <p><%= @charity.street_address %>, <%= @charity.city %>, <%= @charity.state %>, <%= @charity.zip_code %> </p>
+           </div>
+           
 		  <div id="map-canvas"></div>
+
+	
+      </div>
+    </div>
+
+
+
+	
+   
+      
+        <div class="eight wide left aligned column">
+        <div class="right floated">
+			<br>
+			<br>
+	
+			<h3>Charity Overview:</h3>
+			<div class="charity-info"
+			<p> <%= @charity.description %></p>
+			
+
+
 			
       
 			<% if session[:user_id] %>
@@ -30,16 +62,27 @@
 	  			<p><%= link_to "Star This Charity", star_path(@charity) %></p>
 				<% end %>
 			<% end %>
+</div>
+		</div>
+      </div>
+      </div>
+    
+   
 
+   <div class="ui grid">
+      
+        <div class="sixteen wide left aligned column">
+        <div class="left floated">
+	<% if false %>
 				<% if @wishlist && @wishlist.items.count > 0 %>
 					<% @wishlist.items.each do |item|  %>
 						<p><img src="<%= item.picture_url %>"><a href="<%= @wishlist.original_link %>"><%= item.name %></a>, Price: <%= item.current_price %>, Priority: <%= item.priority %>, Requested Quantity: <%= item.qty_requested %>, Quanity Received: <%= item.qty_received %></p><br>
 					<% end %>
 				<% end %>
-        </div>
-      </div>
-    </div>
-  </div>
+
+				<% end %>
 </div>
+		</div>
+      </div>
 
-
+        
