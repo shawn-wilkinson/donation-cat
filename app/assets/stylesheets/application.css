@@ -36,6 +36,7 @@
 }
 .category-card img {
   position: absolute;
+  border-radius: 15px 50px;
   top:0;
   height: 160px;
   width: 275px;
@@ -116,6 +117,9 @@
     .quote.stripe.segment .grid .column {
       padding-top: 5em;
       padding-bottom: 5em;
+    }
+    .ui.centered.grid {
+      border-radius: 25px;
     }
 
     .footer.segment {

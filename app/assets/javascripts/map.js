@@ -54,6 +54,13 @@ function loadFullMap(){
       });
 }
 
+function bindInfoWindow(marker, map, infowindow, html){
+  google.maps.event.addListener(marker, 'click', function(){
+    infowindow.setContent(html);
+    infowindow.open(map, marker)
+  });
+}
+
 function generateFullMap(charities){
   var latlngCenter = new google.maps.LatLng(41.88387, -87.631808);
   var myOptions = {
@@ -64,19 +71,18 @@ function generateFullMap(charities){
   var infoWindow = new google.maps.InfoWindow({
                 content: ""
             });
+
   for(var i=0; i<charities.length; i++){
     var latlong = { lat: charities[i]["latitude"], lng: charities[i]["longitude"] };
     var name = charities[i]["name"];
     var message = "<strong><u><a href=" + charities[i].slug + ">" + name + "</a></u></strong><br>" + charities[i]["street_address"] + ", " + charities[i]["city"] + ", " + charities[i]["state"] + " " + charities[i]["zip_code"];
     var marker = new google.maps.Marker({
                                       map: map,
-                                      position: latlong
+                                      position: latlong,
                                       });
-    google.maps.event.addListener(marker, 'click', function(){
-      infoWindow.setContent(message);
-      infoWindow.open(map, this);
-    });
-  }
+
+    bindInfoWindow(marker, map, infoWindow, message);
+  };
 }
 
 $(document).ready(function(){
