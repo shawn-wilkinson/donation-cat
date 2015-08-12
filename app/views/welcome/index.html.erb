@@ -15,11 +15,12 @@
 </div>
 
 <div class="ui vertical stripe segment">
-  <center><h2>Charity Categories</h2></center>
+
 
   <div class="ui twelve wide centered grid">
+  <center><h2>Charity Categories</h2></center>
     <% Category.all.each_slice(3) do |category_row| %>
-      <div class="category-row row">
+      <div class="category-row teal row">
         <% category_row.each do |category| %>
           <div class="category-card four wide column">
             <%= image_tag("#{category.name}.jpg", :border => 0, :class => "category-card-image")%>
