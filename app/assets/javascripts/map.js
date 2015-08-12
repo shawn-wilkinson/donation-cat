@@ -1,5 +1,15 @@
 var map;
 
+function initialize(){
+  $(document).ready(function(){
+    if($("body.map_locations.charities").length > 0){
+      loadFullMap();
+    } else if($("body.show.charities").length > 0) {
+      loadMap();
+    };
+  });
+}
+
 function centerOnZip(zipCode) {
     geocoder = new google.maps.Geocoder();
     geocoder.geocode( { 'address': zipCode}, function(results, status) {
@@ -34,7 +44,6 @@ function generateMap(latlong, name) {
                                       position: latlong,
                                       title: name
                                       });
-  // google.maps.event.addDomListener(window, 'load', initialize);
 }
 
 function loadFullMap(){
@@ -55,11 +64,10 @@ function generateFullMap(charities){
   for(var i=0; i<charities.length; i++){
     var latlong = { lat: charities[i]["latitude"], lng: charities[i]["longitude"] };
     var name = charities[i]["name"];
-    var message = name;
+    var message = "<strong><u><a href=" + charities[i].slug + ">" + name + "</a></u></strong><br>" + charities[i]["street_address"] + ", " + charities[i]["city"] + ", " + charities[i]["state"] + " " + charities[i]["zip_code"];
     var marker = new google.maps.Marker({
                                       map: map,
-                                      position: latlong,
-                                      title: name
+                                      position: latlong
                                       });
     function addInfoWindow(marker, message) {
       var infoWindow = new google.maps.InfoWindow({
