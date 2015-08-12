@@ -57,6 +57,8 @@ class CharitiesController < ApplicationController
   def profile
     @charity = Charity.find_by(slug: params[:id])
     redirect_to '/' if current_user != @charity
+    @wishlist = @charity.wishlists.last
+    @wishlist.update_wishlist if @wishlist
   end
 
   def show

@@ -1,18 +1,81 @@
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
+      <h2 class="ui icon header">
+        <i class="cube icon"></i>
+      <h1><%= @charity.name.capitalize %>'s Dashboard</h1>
+      <br>
+      <br>
+      <br>
+      <div class="ui grid">
+      <div class="six wide column">
+      <% if true %>
+        <h3>Edit Charity Information</h3
+        <ul>
+         <%= form_for @charity, :html => {:class => "ui form"} do |f| %>
+                <%= f.label :charity_name %>:
+                <%= f.text_field :name %><br />
 
-<%= link_to "Add Amazon Wishlist", new_charity_wishlist_path(@charity) %>
+                <%= f.label :description %>:
+                <%= f.text_area :description, :rows => 4, :cols => 50, :placeholder => "Description of charity...." %><br>
+
+                <%= f.label :choose_your_charity_categories %>:
+                <%= f.select :category_ids, Category.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %><br>
+
+                <%= f.label :contact_name %>:
+                <%= f.text_field :contact_name %><br />
+
+                <%= f.label :contact_email %>:
+                <%= f.text_field :contact_email %><br />
+
+                <%= f.label :contact_phone %>:
+                <%= f.text_field :contact_phone %><br />
+
+                <%= f.label :street_address %>:
+                <%= f.text_field :street_address %><br />
+
+                <%= f.label :city %>:
+                <%= f.text_field :city, class: 'field' %><br />
+
+                <%= f.label :state %>:
+                <%= f.text_field :state, :placeholder => "two letter abbreviation" %><br />
+
+                <%= f.label :zip_code %>:
+                <%= f.text_field :zip_code %><br />
+
+                <%= f.label :password %>:
+                <%= f.password_field :password %><br />
+                <p></p>
+                <%= f.submit "Submit", class: 'ui button' %>
+              <% end %>
+          
+        </ul>
+      <% end %>
+      </div>
+      <div class="four wide column">
+      
+        <% if @wishlist && @wishlist.items.count > 0 %>
+          <h3><%= link_to "Update Amazon Wishlist", new_charity_wishlist_path(@charity) %></h3>
+          <% else %>
+          <h3><%= link_to "Add Amazon Wishlist", new_charity_wishlist_path(@charity) %></h3>
+        <% end %>
+       
+      </div>
+      <div class="six wide column">
+      <% if true %>
+        <h3>Current Amazon Wishlist</h3>
+        <ul>
+        <% if @wishlist && @wishlist.items.count > 0 %>
+                    <% @wishlist.items.each do |item|  %>
+                        <p><img src="<%= item.picture_url %>"><a href="<%= @wishlist.original_link %>"><%= item.name %></a>, Price: <%= item.current_price %>, Priority: <%= item.priority %>, Requested Quantity: <%= item.qty_requested %>, Quanity Received: <%= item.qty_received %></p><br>
+                    <% end %>
+                <% end %>
+
+          
+        </ul>
+      <% end %>
+      </div>
 
 
-<br>
-<br>
-<br>
-<br>
 
-
-<%= link_to "Edit Charity Information", edit_charity_path(@charity) %>
 

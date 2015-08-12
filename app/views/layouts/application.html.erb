@@ -53,6 +53,7 @@
 
       <a class="item">Charities</a>
       <a class="item" href="/about">About</a>
+      
 
      <div class="right menu">
           <div class="item">
@@ -67,6 +68,7 @@
             </div>
           </div>
           </div>
+               <% if !session[:charity_id] %>
             <% if session[:user_id] %>
             <div class="item">
               <a href="/users/<%= current_user.slug %>">Profile</a>
@@ -80,6 +82,15 @@
               <%= button_to "New User", new_user_path(@user), :class => "ui primary button", :method => :get  %>
             </div>
             <% end %>
+          <% else %>
+             
+              
+            <div class="item">
+              <a href="/charities/<%= current_user.to_param %>/profile" class="item"><%= current_user.name %> Dashboard</a>
+              <a href="/charities/logout" class="item">Charity Log Out</a>
+            </div>
+
+          <% end %>
           </div>
 
     </div>

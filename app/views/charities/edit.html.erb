@@ -1,55 +1,56 @@
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<div class="ui vertical stripe segment">
+    <div class="ui eight column centered grid">
+        <div class="eight wide column">
+            <div class="ui teal inverted segment">
 
+              <h1>Edit charity information:</h1>
 
-<h1>Edit charity information:</h1>
+              <%= form_for @charity, :html => {:class => "ui form"} do |f| %>
+                <%= f.label :charity_name %>:
+                <%= f.text_field :name %><br />
 
-<%= form_for @charity do |f| %>
-  <%= f.label :charity_name %>:
-  <%= f.text_field :name %><br />
+                <%= f.label :description %>:
+              	<%= f.text_area :description, :rows => 4, :cols => 50, :placeholder => "Description of charity...." %><br>
 
-	<%= f.text_area :description, :rows => 4, :cols => 50, :placeholder => "Description of charity...." %><br>
+                <%= f.label :choose_your_charity_categories %>:
+                <%= f.select :category_ids, Category.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %><br>
 
-  <%= f.select :category_ids, Category.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %><br>
+                <%= f.label :contact_name %>:
+                <%= f.text_field :contact_name %><br />
 
-  <%= f.label :contact_name %>:
-  <%= f.text_field :contact_name %><br />
+                <%= f.label :contact_email %>:
+                <%= f.text_field :contact_email %><br />
 
-  <%= f.label :contact_email %>:
-  <%= f.text_field :contact_email %><br />
+                <%= f.label :contact_phone %>:
+                <%= f.text_field :contact_phone %><br />
 
-  <%= f.label :contact_phone %>:
-  <%= f.text_field :contact_phone %><br />
+                <%= f.label :street_address %>:
+                <%= f.text_field :street_address %><br />
 
-  <%= f.label :street_address %>:
-  <%= f.text_field :street_address %><br />
+                <%= f.label :city %>:
+                <%= f.text_field :city, class: 'field' %><br />
 
-  <%= f.label :city %>:
-  <%= f.text_field :city %><br />
+                <%= f.label :state %>:
+                <%= f.text_field :state, :placeholder => "two letter abbreviation" %><br />
 
-  <%= f.label :state %>:
-  <%= f.text_field :state, :placeholder => "two letter abbreviation" %><br />
+                <%= f.label :zip_code %>:
+                <%= f.text_field :zip_code %><br />
 
-  <%= f.label :zip_code %>:
-  <%= f.text_field :zip_code %><br />
+                <%= f.label :password %>:
+                <%= f.password_field :password %><br />
+                <p></p>
+                <%= f.submit "Submit", class: 'ui button' %>
+              <% end %>
 
-  <%= f.label :password %>:
-  <%= f.password_field :password %><br />
+              <% if @error %>
+                <p><%= @error %></p>
+              <% end %>
 
-  <%= f.submit %>
-<% end %>
-
-
-
-
-<% if @error %>
-  <p><%= @error %></p>
-<% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
