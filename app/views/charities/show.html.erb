@@ -80,6 +80,8 @@
    <br>
    <br>
 
+
+	<% if @wishlist && @wishlist.items.count > 0 %>
    <div class="ui grid">
       
         <div class="sixteen wide left aligned column">
@@ -100,7 +102,7 @@
   <tbody>
   
 
-		<% if @wishlist && @wishlist.items.count > 0 %>
+		
 					<% @wishlist.items.each do |item|  %>
 
 
