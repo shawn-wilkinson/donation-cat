@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   get 'charities/:id/profile' => 'charities#profile', as: :profile
   get '/about' => 'welcome#about'
-
+  get '/categories/:id/interest' =>'categories#interest', as: :interest
 
   get 'charities/:id/star' => 'charities#star', as: :star
   get 'charities/:id/recently_visited' => 'charities#recently_visited', as: :recently_visited
