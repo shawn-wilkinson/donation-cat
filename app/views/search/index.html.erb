@@ -1,3 +1,12 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
 <p>Search term: <em><%= @search_query %></em></p>
 
 <p>Search results:</p>
@@ -7,7 +16,7 @@
 <% end %>
 
 <% unless @charities.empty? %>
-<p>Charities:</p>
+<h3>Charities:</h3>
   <% @charities.each do |charity| %>
    <p><a href="/charities/<%= charity.to_param %>"><%= charity.name %></a></p>
   <% end %>
