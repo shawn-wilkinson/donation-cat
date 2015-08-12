@@ -8,6 +8,7 @@ $(document).ready(function() {
 		var request = $.ajax({
     url: $(this).attr('ajax_path'), 
     method: 'GET'  
+
   });
 
 		request.done(function(response){
