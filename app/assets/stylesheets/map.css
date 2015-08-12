@@ -1,9 +1,9 @@
 #map-canvas {
-  width: 500px;
-  height: 400px;
+  width: 30em;
+  height: 30em;
 }
 
 #full-map-canvas {
-  width: 800px;
-  height: 600px;
+  width: 75em;
+  height: 55em;
 }
