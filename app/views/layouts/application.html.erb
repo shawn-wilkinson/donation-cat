@@ -52,7 +52,7 @@
       <a class="item" href="/"><%= image_tag('dcicon.png') %></a>
       <a href="/news" class="item">Charity News</a>
       <a class="item" href="/about">About</a>
-      
+
 
      <div class="right menu">
           <div class="item">
@@ -82,8 +82,8 @@
             </div>
             <% end %>
           <% else %>
-             
-              
+
+
             <div class="item">
               <a href="/charities/<%= current_user.to_param %>/profile" class="item"><%= current_user.name %> Dashboard</a>
               <a href="/charities/logout" class="item">Charity Log Out</a>
@@ -181,8 +181,8 @@
         </div>
       </div>
     </div>
-
+     <%= javascript_include_tag 'application' %>
      <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?callback=initialize" %>
-    <%= javascript_include_tag 'application' %>
+
   </body>
 </html>
