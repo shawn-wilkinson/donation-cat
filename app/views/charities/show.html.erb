@@ -13,9 +13,7 @@
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
+
 
     <div class="ui grid">
       
@@ -79,25 +77,33 @@
       </div>
       </div>
     
-   
+   <br>
+   <br>
 
    <div class="ui grid">
       
         <div class="sixteen wide left aligned column">
         <div class="left floated">
 
-        <table class="ui celled padded table">
-        <% if @wishlist && @wishlist.items.count > 0 %>
-					<% @wishlist.items.each do |item|  %>
+   <h3>Amazon Wishlist:</h3>
+        <table class="ui very basic collapsing celled table">
+        
   <thead>
-    <tr><th>Picture</th>
-    <th>Item</th>
+    <tr><th></th>
+    <th class="six wide">Item</th>
     <th>Price</th>
     <th>Priority</th>
     <th>Requested Qty</th>
     <th>Qty Received</th>
   </tr></thead>
+
   <tbody>
+  
+
+		<% if @wishlist && @wishlist.items.count > 0 %>
+					<% @wishlist.items.each do |item|  %>
+
+
     <tr>
       <td>
         <img src="<%= item.picture_url %>">
@@ -118,10 +124,16 @@
       	<%= item.qty_received %>
       </td>
     </tr>
+
+
     
+
+  
+  <% end %>
+  <% end %>
+
   </tbody>
-  <% end %>
-  <% end %>
+
 </table>
 
 
