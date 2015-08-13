@@ -5,43 +5,42 @@ class Wishlist < ActiveRecord::Base
   belongs_to :charity
   has_many :items
 
-  def generate_print_friendly_url
+  def initial_regex(link)
+    if ( link =~ /id=[0-9a-zA-Z]*/ )
+      my_var = /id=[0-9a-zA-Z]*/.match(link)
+      string = my_var[0][3..-1]
+      if string.length >= 12
+          string
+      else
+          split_array(link)
+      end
+    else
+        split_array(link)
+    end
+	end
 
-  end
+  def split_array(link)
+    link_array = link.split('/')
+    holding_array = []
+    results = []
+    holding_array << link_array[4]
+    holding_array << link_array[5]
+    holding_array << link_array[6]
+    holding_array.each do |result|
+        results << result if result && result.length < 20
+    end
+    results[-1]
+	end
+
 
 	def update_wishlist
-
 			self.items.delete_all
 			link = self.original_link
-
 			if link
-				link_array = link.split('/') 
+				destination = "http://www.amazon.com/gp/registry/wishlist/ref=cm_wl_act_print_v?ie=UTF8&disableNav=1&filter=all&id=" + initial_regex(link) + "&items-per-page=200&layout=standard-print&sort=date-added&visitor-view=1"
 
-				holding_array = []
-				results = []
-
-				holding_array << link_array[5]
-				holding_array << link_array[6]
-
-				holding_array.each do |result|
-					results << result if result.length < 20
-				end
-
-				destination = "http://www.amazon.com/gp/registry/wishlist/ref=cm_wl_act_print_v?ie=UTF8&disableNav=1&filter=all&id=" + results[-1] + "&items-per-page=200&layout=standard-print&sort=date-added&visitor-view=1"
-
-				
-					
 					doc = Nokogiri::HTML(open(destination))
-					# File.open('heythere.xml', 'w') { |f| f.print(doc) }
-					# File.open('working.xml', 'w') { |f| f.print(doc) }
 					track_row = doc.css("tr")
-
-					p "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-					p "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-					p "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-					p "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-					p "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-					p track_row
 					modified_track_rows = track_row[3..-1]
 					if modified_track_rows
 						modified_track_rows.each do |track_row|
