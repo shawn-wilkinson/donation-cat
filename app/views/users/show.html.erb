@@ -5,37 +5,44 @@
         <i class="user icon"></i>
       <h1><%= @user.username.capitalize %>'s Profile</h1>
       <div class="ui grid">
+
       <div class="six wide column">
       <% if @starred_charities %>
         <h3>Starred Charities</h3
         <ul>
           <% @starred_charities.each do |charity| %>
-             <%= link_to charity.name, charity_path(charity) %><p>
-          <% end %>
-        </ul>
-      <% end %>
-      </div>
-      <div class="four wide column">
-      <% if @categories %>
-        <h3>Your Interest Categories</h3>
-        <ul>
-          <% @categories.each do |category| %>
-            <%= link_to category.name, category_path(category) %><p>
-          <% end %>
-        </ul>
-      <% end %>
-      </div>
-      <div class="six wide column">
-      <% if @visited_charities %>
-        <h3>Recently Viewed Charities</h3>
-        <ul>
-          <% @visited_charities.each do |charity| %>
-            <p><%= link_to charity.name, charity_path(charity) %>
+             <p><%= link_to charity.name, charity_path(charity) %></p>
           <% end %>
         </ul>
       <% end %>
       </div>
 
-      <h3>Recommended Charity:</h3>
-      <p><%= link_to @recommended_charity.name, charity_path(@recommended_charity) %></p>
-      <p><%= @recommended_charity.description %></p>
+      <div class="four wide centered text column">
+      <% if @categories %>
+        <h3>Your Interest Categories</h3>
+        <ul>
+          <% @categories.each do |category| %>
+            <p><%= link_to category.name, category_path(category) %></p>
+          <% end %>
+        </ul>
+      <% end %>
+      </div>
+
+      <div class="six wide column">
+      <% if @visited_charities %>
+        <h3>Recently Viewed Charities</h3>
+        <ul>
+          <% @visited_charities.each do |charity| %>
+            <p><%= link_to charity.name, charity_path(charity) %></p>
+          <% end %>
+        </ul>
+      <% end %>
+      </div>
+
+
+      <div class="eight wide centered column">
+        <h3>Recommended Charity:</h3>
+        <p><%= link_to @recommended_charity.name, charity_path(@recommended_charity) %></p>
+        <p><%= @recommended_charity.description %></p>
+    </div>
+  </div>
