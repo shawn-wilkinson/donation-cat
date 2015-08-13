@@ -5,11 +5,11 @@ module SearchHelper
   end
 
   def perform_charity_name_search(term)
-    Charity.where('downcase_name like ?', "%#{term}%")
+    Charity.where('downcase_name like ?', "%#{term}%").order(:name)
   end
 
   def perform_category_name_search(term)
-    Category.where('downcase_name like ?', "%#{term}%")
+    Category.where('downcase_name like ?', "%#{term}%").order(:name)
   end
 
   def search_charity_names(search_terms)

@@ -1,35 +1,32 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-
-<p>Search term: <em><%= @search_query %></em></p>
-
-<p>Search results:</p>
+<br><br><br><br>
+<h2 class="search-display">Search results:</h2>
+<h3 class="search-display">Search term: <em><%= @search_query %></em></h3>
 
 <% if @charities.empty? && @categories.empty? %>
-  Sorry, the search terms entered yielded no results. Please try another search.
+  <h1>Sorry, no results were found. Please try another set of search words.</h1>
 <% end %>
 
 <% unless @charities.empty? %>
-<h3>Charities:</h3>
+<h3 class="search-display">Charities:</h3>
+<table class="ui teal table">
   <% @charities.each do |charity| %>
-   <p><a href="/charities/<%= charity.to_param %>"><%= charity.name %></a></p>
+   <tr><td><p><a href="/charities/<%= charity.to_param %>"><%= charity.name %></a></p></td></tr>
   <% end %>
+  </table>
 <% end %>
 
 <% unless @categories.empty? %>
-  <p>Categories</p>
+  <h3 class="search-display">Categories</h3>
+  <table class="ui teal table">
   <% @categories.each do |category| %>
-    <p><a href="/categories/<%= category.to_param %>"><%= category.name %></a></p>
+    <tr><td><p><a href="/categories/<%= category.to_param %>"><%= category.name %></a></p></td></tr>
   <% end %>
+  </table>
 <% end %>
 
-
+<% if @charities.empty? && @categories.empty? %>
+<%= image_tag("playfulcat.png", :width => 200, :height => 150, :class => "search-image") %>
+<% end %>
 
 
 
