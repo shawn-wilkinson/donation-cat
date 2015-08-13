@@ -3,20 +3,14 @@
 <div class="ui vertical stripe segment">
   <div class="ui middle aligned stackable grid container">
     <div class="row">
+      <form id="search-zip-form">
+        <label for="search-zip">Enter 5-digit zip code:</label></br><br>
+        <input type="text" name="search-zip"></br></br>
+        <button class="ui primary button" type="submit">Find Charities</button>
+      </form>
+      <div id="error-container"></div>
       <div class="center aligned column">
-        <div class="float-container">
-          <div class="ui left floated">
-            <div id="full-map-canvas"></div>
-          </div>
-          <div class="ui right floated">
-            <form id="search-zip-form">
-              <label for="search-zip">Enter 5-digit zip code:</label>
-              <input type="text" name="search-zip">
-              <input type="submit" value="Find!">
-            </form>
-            <div id="error-container"></div>
-          </div>
-        </div>
+        <div id="full-map-canvas"></div>
       </div>
     </div>
   </div>
