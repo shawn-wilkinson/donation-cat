@@ -8,19 +8,22 @@
     <h2>Help right meow.</h2>
   </div>
   <P>
-  <div class="ui huge primary button">
-
-    <a href="/charities/map">Find a charity near you</a><i class="right arrow icon"></i>
-  </div>
+  <a href="/charities/map"><button class="ui huge primary button">
+    Find a charity near you<i class="right arrow icon"></i>
+  </button>
+  </a>
 </div>
 
 <div class="ui vertical stripe segment">
 
 
   <div class="ui twelve wide centered grid">
-  <center><h1>Charity Categories</h1></center>
+    <h2 class="ui horizontal divider header">
+        <i class="paw icon"></i>
+          Charity Categories
+    </h2>
     <% Category.all.each_slice(3) do |category_row| %>
-      <div class="category-row teal row" style="border-radius: 25px">
+      <div class="category-row row">
         <% category_row.each do |category| %>
           <div class="category-card four wide column">
             <%= image_tag("#{category.name}.jpg", :border => 0, :class => "category-card-image")%>
