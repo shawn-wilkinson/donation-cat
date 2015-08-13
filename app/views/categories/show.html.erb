@@ -3,12 +3,20 @@
       <div class="row">
         <div class="center aligned column">
         	<h1> <%= @category.name %> </h1>
-			
+
+  <% if session[:user_id] %>
+        <% if current_user.categories.include?(@category) %>
+          <a id="category_follow" href="/categories/<%= @category.to_param %>/interest"><button id="follow"class="ui yellow button">Unfollow Category</button></a>
+        <% else %>
+          <a id="category_follow" href="/categories/<%= @category.to_param %>/interest"><button id="follow" class="ui grey button">Follow Category</button></a>
+        <% end %>
+      <% end %>
+
         <table class="ui teal table">
 			   <% @charities.each do |charity| %>
 			     <tr><td><h2><%= link_to charity.name, charity_path(charity) %></h2></td></tr>
 			   <% end %>
-		
+
         </table>
 
         </div>
