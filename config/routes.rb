@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
   get 'welcome/news' => 'welcome#news', as: :news
-
+  get 'welcome/swipe' => 'welcome#swipe'
   get 'charities/map' => 'charities#map_locations'
 
   get 'charities/login' => 'charities#identify', as: "charities_login"
