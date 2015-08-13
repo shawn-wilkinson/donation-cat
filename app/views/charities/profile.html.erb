@@ -12,7 +12,7 @@
       <div class="ui grid">
       <div class="six wide column">
       <% if true %>
-        <h3> Charity Information</h3
+        <h3> Edit Charity Information</h3
         <ul>
          <%= form_for @charity, :html => {:class => "ui form"} do |f| %>
                 <%= f.label :charity_name %>:
@@ -59,14 +59,20 @@
 
           <% if @wishlist && @wishlist.items.count > 0 %>
             <h3><%= link_to "Update Amazon Wishlist", new_charity_wishlist_path(@charity), class: "wishlist-class", :ajax_path => new_charity_wishlist_path(@charity) %></h3>
-            <% else %>
-            <h3><%= link_to "Add Amazon Wishlist", new_charity_wishlist_path(@charity), class: "wishlist-class", :ajax_path => new_charity_wishlist_path(@charity) %></h3>
           <% end %>
         </div>
        
       </div>
       <div class="six wide column">
-      <% if true %>
+      
+      <% if !@wishlist %>
+       <h3><%= link_to "Add Amazon Wishlist", new_charity_wishlist_path(@charity), class: "wishlist-class", :ajax_path => new_charity_wishlist_path(@charity) %></h3><br>
+
+       <h3><a target="_blank" href="https://www.amazon.com/wishlist/universal">What's an Amazon Wishlist?</a></h3><br>
+
+
+      <% else %>
+
         <h3>Current Amazon Wishlist</h3>
         <ul>
         <% if @wishlist && @wishlist.items.count > 0 %>
