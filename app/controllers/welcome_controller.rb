@@ -17,5 +17,8 @@ class WelcomeController < ApplicationController
   def news
   end
 
+  def swipe
+  end
+
 
 end
