@@ -57,42 +57,25 @@ class User < ActiveRecord::Base
     end
   end
 
-  def key_with_highest_value(hash)
-    max_key = hash.max_by{|k,v| v}
-    return max_key[0]
-  end
-
-
   def self.establish_match_weights(user_id)
-    selected_user = User.find(user_id)
-    match_scores = []
-    User.all.each do |user|
-      match_num = 0
-      user.charities.each do |charity|
-        if selected_user.charities.include?(charity)
-          match_num = match_num + 1
-        end
-      end
-      match_scores << match_num
-    end
-    return match_scores
+    user = User.find(user_id)
+    common_likes = UsersCharity.where(charity_id: user.charity_ids).pluck(:user_id, :charity_id)
+    overlap_per_user = common_likes.group_by{ |user_id, charity_id| user_id }.map { |k, v| [k, v.length] }
   end
 
-  def set_charity_scores(weights)
-    match_weights = weights
+  def set_charity_scores(user_weights)
     charity_scores = {}
     Charity.all.each{|charity| charity_scores[charity.id] = 0}
-    User.all.each_with_index do |user,index|
-      if self.id != user.id
-        user.charities.each do |charity|
-          unless self.charities.include?(charity)
-            charity_scores[charity.id] += match_weights[index]
-          end
-        end
+    user_weights.each do |user_id, user_value|
+      User.find(user_id).charities.each do |charity|
+        charity_scores[charity.id] += user_value unless self.charities.include?(charity)
       end
     end
     return charity_scores
   end
 
+  def key_with_highest_value(hash)
+    hash.max_by{|k,v| v}[0]
+  end
 
 end
