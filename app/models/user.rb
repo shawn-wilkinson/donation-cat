@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
       recommend_charity_id = key_with_highest_value(charity_scores)
       Charity.find(recommend_charity_id)
     else
-      Charity.find(rand(Charity.all.length) + 1)
+      Charity.all.sample
     end
   end
 
