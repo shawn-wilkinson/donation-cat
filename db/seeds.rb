@@ -2,6 +2,8 @@ require 'faker'
 
 Category.destroy
 Wishlist.destroy
+User.destroy
+Charity.destroy
 
 #Google doc research
 cat1 = Category.create(name:"Animal Advocacy")
