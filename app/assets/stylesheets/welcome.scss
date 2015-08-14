@@ -1,11 +1,20 @@
 .gf-result{
 
-  background-color: #A7DBD8;
+  background-color: white;
+  opacity:0.7;
+  border-radius:5px;
   width: 100%;
   margin-bottom:10px;
+  padding:2px;
 }
 
 .gf-title{
+  color:black;
+  margin-bottom:5px;
+  font-weight:bold;
+}
+
+.gf-snippet{
   color:black;
   margin-bottom:5px;
 }
