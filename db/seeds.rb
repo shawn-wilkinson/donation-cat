@@ -4,7 +4,7 @@ require 'faker'
 #Google doc research
 cat1 = Category.create(name:"Animal Advocacy")
 cat2 = Category.create(name:"Arts Awareness")
-cat3 = Category.create(name:"Special Needs")
+cat3 = Category.create(name:"Community Support")
 cat4 = Category.create(name:"Health")
 cat5 = Category.create(name:"Children")
 cat6 = Category.create(name:"Social Services")
@@ -27,6 +27,7 @@ char3.categories << cat1
 char4 = Charity.create(name: "Tender Loving Care Animal Shelter", description: "Animal Shelter", contact_phone: "(708) 301-1594", street_address: "13016 West 151st Street", city: "Homer Glen", state: "IL", zip_code: "60491", twitter_handle: "tlcanimal", website: "http://www.tlcanimalshelter.org/", donation_page: "http://www.tlcanimalshelter.org/info/donate", password: "password")
 char4.categories << cat1
 # char4.wishlists.create!(original_link: "http://www.amazon.com/registry/wishlist/3QFCG8VCY7MT2/ref=cm_sw_r_tw_ws_jS69ub0W8F78")
+
 wishlist4 = Wishlist.create!(original_link: "http://www.amazon.com/registry/wishlist/3QFCG8VCY7MT2/ref=cm_sw_r_tw_ws_jS69ub0W8F78")
 char4.wishlists << wishlist4
 
