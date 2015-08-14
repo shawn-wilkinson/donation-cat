@@ -1,5 +1,7 @@
 require 'faker'
 
+Category.destroy
+Wishlist.destroy
 
 #Google doc research
 cat1 = Category.create(name:"Animal Advocacy")
@@ -58,11 +60,11 @@ char12.categories << cat6
 wishlist12 = Wishlist.create!(original_link: "https://www.amazon.com/gp/registry/wishlist/FY2O3UG2PNSG/ref=cm_sw_su_w")
 char12.wishlists << wishlist12
 # char12.wishlists.create!(original_link: "https://www.amazon.com/gp/registry/wishlist/FY2O3UG2PNSG/ref=cm_sw_su_w")
-char13 = Charity.create!(name: "SOME (So Others Might Eat)", description: "SOME (So Others Might Eat) is an interfaith, community-based organization that exists to help the poor and homeless of our nation’s capital. We meet the immediate daily needs of the people we serve with food, clothing, and health care. We help break the cycle of homelessness by offering services, such as affordable housing, job training, addiction treatment, and counseling, to the poor, the elderly and individuals with mental illness.", contact_phone: "202.797.8806", street_address: "71 O Street", city: "Washington", state: "DC", zip_code: "20001", twitter_handle: "SOME_DC", website: "http://some.org/", donation_page: "https://secure2.convio.net/soome/site/Donation2?idb=2138350153&df_id=2340&2340.donation=form1&idb=251029693", password: "password")
-char13.categories << cat6
-# char13.wishlists.create!(original_link: "http://www.amazon.com/gp/registry/wishlist/ref=cm_wl_search_2?ie=UTF8&cid=A27C6K9V8AWL1N")
-wishlist13 = Wishlist.create!(original_link: "http://www.amazon.com/gp/registry/wishlist/ref=cm_wl_search_2?ie=UTF8&cid=A27C6K9V8AWL1N")
-char13.wishlists << wishlist13
+# char13 = Charity.create!(name: "SOME (So Others Might Eat)", description: "SOME (So Others Might Eat) is an interfaith, community-based organization that exists to help the poor and homeless of our nation’s capital. We meet the immediate daily needs of the people we serve with food, clothing, and health care. We help break the cycle of homelessness by offering services, such as affordable housing, job training, addiction treatment, and counseling, to the poor, the elderly and individuals with mental illness.", contact_phone: "202.797.8806", street_address: "71 O Street", city: "Washington", state: "DC", zip_code: "20001", twitter_handle: "SOME_DC", website: "http://some.org/", donation_page: "https://secure2.convio.net/soome/site/Donation2?idb=2138350153&df_id=2340&2340.donation=form1&idb=251029693", password: "password")
+# char13.categories << cat6
+# # char13.wishlists.create!(original_link: "http://www.amazon.com/gp/registry/wishlist/ref=cm_wl_search_2?ie=UTF8&cid=A27C6K9V8AWL1N")
+# wishlist13 = Wishlist.create!(original_link: "http://www.amazon.com/gp/registry/wishlist/ref=cm_wl_search_2?ie=UTF8&cid=A27C6K9V8AWL1N")
+# char13.wishlists << wishlist13
 
 char14 = Charity.create!(name: "Mission of Our Lady of the Angels", description: "Mission of Our Lady of the Angels provides a Catholic presence to the poor in West Humboldt Park, Chicago.", contact_email: "olamission@gmail.com", contact_phone: "773-486-8431", street_address: "3808 W. Iowa St.", city: "Chicago", state: "IL", zip_code: "60651", website: "http://www.missionola.com/", donation_page: "http://www.missionola.com/getInvolved_DonateOnline.html", password: "password")
 char14.categories << cat7
@@ -89,11 +91,11 @@ char20.categories << cat10
 wishlist20 = Wishlist.create!(original_link: "http://www.amazon.com/registry/wishlist/GO30U47N1SN1/ref=cm_wl_sb_o?reveal=unpurchased&filter=all&sort=priority&layout=standard&x=12&y=7")
 char20.wishlists << wishlist20
 
-char21 = Charity.create!(name: "Shedd Aquarium", description: "Shedd Aquarium, a not-for-profit organization, is dedicated to connecting people to the living world and inspiring them to make a difference. You can directly support our work with a tax-deductible donation. There are so many ways to show your support: through individual gifts, corporate gifts, membership, the Aquarium Council premier donor society and our Auxiliary Board. More fundraising opportunities range our formal gala to our fun golf tournament, the adopt-an-animal program, our Amazon Wish List and Amazon Smile. Even going on a travel adventure with Shedd to wonderful wild places supports our work. Another way to donate to Shedd is through the gift of time. Our volunteer force provides invaluable assistance from sharing information with guests to cleaning the animals’ habitats. One-day volunteer opportunities through our Great Lakes Action Days further Shedd’s conservation mission in the aquarium’s, and Chicago’s, back yard. Explore the different ways you can support Shedd and be a part of all that we do! Contact our donor services for more information.", street_address: "1200 S Lake Shore Drive", city: "Chicago", state: "IL", zip_code: "60605", twitter_handle: "shedd_aquarium", website: "http://www.sheddaquarium.org/", donation_page: "http://www.sheddaquarium.org/Support-Us/Donate-Online/", password: "password")
-char21.categories << cat1
-# char21.wishlists.create!(original_link: "http://www.amazon.com/gp/registry/wishlist/ref=cm_wl_search_1?ie=UTF8&cid=A3LXNLQYNHOJUQ")
-wishlist21 = Wishlist.create!(original_link: "http://www.amazon.com/gp/registry/wishlist/ref=cm_wl_search_1?ie=UTF8&cid=A3LXNLQYNHOJUQ")
-char21.wishlists << wishlist21
+# char21 = Charity.create!(name: "Shedd Aquarium", description: "Shedd Aquarium, a not-for-profit organization, is dedicated to connecting people to the living world and inspiring them to make a difference. You can directly support our work with a tax-deductible donation. There are so many ways to show your support: through individual gifts, corporate gifts, membership, the Aquarium Council premier donor society and our Auxiliary Board. More fundraising opportunities range our formal gala to our fun golf tournament, the adopt-an-animal program, our Amazon Wish List and Amazon Smile. Even going on a travel adventure with Shedd to wonderful wild places supports our work. Another way to donate to Shedd is through the gift of time. Our volunteer force provides invaluable assistance from sharing information with guests to cleaning the animals’ habitats. One-day volunteer opportunities through our Great Lakes Action Days further Shedd’s conservation mission in the aquarium’s, and Chicago’s, back yard. Explore the different ways you can support Shedd and be a part of all that we do! Contact our donor services for more information.", street_address: "1200 S Lake Shore Drive", city: "Chicago", state: "IL", zip_code: "60605", twitter_handle: "shedd_aquarium", website: "http://www.sheddaquarium.org/", donation_page: "http://www.sheddaquarium.org/Support-Us/Donate-Online/", password: "password")
+# char21.categories << cat1
+# # char21.wishlists.create!(original_link: "http://www.amazon.com/gp/registry/wishlist/ref=cm_wl_search_1?ie=UTF8&cid=A3LXNLQYNHOJUQ")
+# wishlist21 = Wishlist.create!(original_link: "http://www.amazon.com/gp/registry/wishlist/ref=cm_wl_search_1?ie=UTF8&cid=A3LXNLQYNHOJUQ")
+# char21.wishlists << wishlist21
 
 char22 = Charity.create!(name: "Mission of Our Lady of The Angels", description: "The Mission of Our Lady of the Angels establishes a Catholic presence in the West Humboldt Park area on Chicago’s west side. This area is presently one of the poorest neighborhoods in the City of Chicago. The purpose of the Mission is twofold:  to assist the materially poor and to share the treasure of our Catholic Faith.", contact_email: "olamission@gmail.com", contact_phone: "773-486-8431", street_address: "3808 W Iowa Street", city: "Chicago", state: "IL", zip_code: "60651", website: "http://www.missionola.com/index.html", donation_page: "http://www.missionola.com/getInvolved_DonateOnline.html", password: "password")
 char22.categories << cat10
@@ -110,11 +112,11 @@ char23.wishlists << wishlist23
 
 char24 = Charity.create!(name: "The Night Ministry", description: "The Night Ministry needs you. Since 1976, The Night Ministry has been making a difference in the lives of thousands of adults and youth in Chicago every year.  Your support helps us transform more lives by providing vital services like outreach services, youth shelter, health care, counseling, and referrals. Volunteers groups also help us serve over 80,000 meals every year to those in need. Any donation you can make helps us provide adults and youth who are at-risk or homeless with the programs and services they so desperately need.", contact_email: "Info@thenightministry.org", contact_phone: "773-784-9000", street_address: "4711 North Ravenswood Ave", city: "Chicago", state: "IL", zip_code: "60640", twitter_handle: "NightMinistry", website: "http://www.thenightministry.org/", donation_page: "http://www.thenightministry.org/003_donate/", password: "password")
 char24.categories << cat10
-char25 = Charity.create!(name: "Christopher House Elementary", description: "Christopher House provides a family of schools to help low-income children and their families succeed in school, the workplace, and life. We partner with families to provide a continuum of education for students birth through high-school as well as educational resources to help parents create and foster stable, self-sufficient families.", contact_email: "info@christopherhouse.org", contact_phone: "(773) 922-7544", street_address: "5235 W Belden Ave", city: "Chicago", state: "IL", zip_code: "60639", twitter_handle: "chousechicago", donation_page: "https://christopherhouse.org/donate-now/donate2015/", password: "password")
-char25.categories << cat12
-# char25.wishlists.create!(original_link: "http://www.amazon.com/registry/wishlist/YEWF981BT9SU/ref=cm_wl_search_3")
-wishlist25 = Wishlist.create!(original_link: "http://www.amazon.com/registry/wishlist/YEWF981BT9SU/ref=cm_wl_search_3")
-char25.wishlists << wishlist25
+# char25 = Charity.create!(name: "Christopher House Elementary", description: "Christopher House provides a family of schools to help low-income children and their families succeed in school, the workplace, and life. We partner with families to provide a continuum of education for students birth through high-school as well as educational resources to help parents create and foster stable, self-sufficient families.", contact_email: "info@christopherhouse.org", contact_phone: "(773) 922-7544", street_address: "5235 W Belden Ave", city: "Chicago", state: "IL", zip_code: "60639", twitter_handle: "chousechicago", donation_page: "https://christopherhouse.org/donate-now/donate2015/", password: "password")
+# char25.categories << cat12
+# # char25.wishlists.create!(original_link: "http://www.amazon.com/registry/wishlist/YEWF981BT9SU/ref=cm_wl_search_3")
+# wishlist25 = Wishlist.create!(original_link: "http://www.amazon.com/registry/wishlist/YEWF981BT9SU/ref=cm_wl_search_3")
+# char25.wishlists << wishlist25
 
 
 
