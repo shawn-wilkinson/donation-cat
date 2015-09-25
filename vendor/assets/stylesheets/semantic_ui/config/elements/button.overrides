@@ -9,4 +9,8 @@
   background-color: #3A58AC;
   }
 
+   .ui.primary.button:visited {
+  background-color: #517AEF;
+  }
+
  

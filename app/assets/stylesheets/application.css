@@ -15,6 +15,17 @@
  *= require_self
  */
 
+/*#yo {
+  padding: 5%;
+}*/
+
+#search-zip-form {
+  padding-left: 5%;
+  padding-right: 10%;
+  
+}
+
+
 #community {
   max-width: 100%;
 }
