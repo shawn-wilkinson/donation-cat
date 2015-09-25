@@ -15,7 +15,9 @@
  *= require_self
  */
 
-
+#pete {
+  color: white;
+}
 
 .charity-info {
   font-size: 17px;
