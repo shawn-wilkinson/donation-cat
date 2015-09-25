@@ -6,7 +6,7 @@
   }
 
   .ui.primary.button:hover {
-  background-color: #517AEF;
+  background-color: #3A58AC;
   }
 
  

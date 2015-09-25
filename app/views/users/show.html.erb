@@ -9,33 +9,33 @@
       <div class="six wide column">
       <% if @starred_charities %>
         <h3>Starred Charities</h3
-        <ul>
           <% @starred_charities.each do |charity| %>
              <p><%= link_to charity.name, charity_path(charity) %></p>
           <% end %>
-        </ul>
       <% end %>
       </div>
 
       <div class="four wide centered text column">
       <% if @categories %>
         <h3>Your Interest Categories</h3>
-        <ul>
           <% @categories.each do |category| %>
             <p><%= link_to category.name, category_path(category) %></p>
           <% end %>
-        </ul>
       <% end %>
       </div>
 
       <div class="six wide column">
       <% if @visited_charities %>
         <h3>Recently Viewed Charities</h3>
-        <ul>
+        <% if @visited_charities.length > 4 %>
+          <% @visited_charities[-5..-1].each do |charity| %>
+            <p><%= link_to charity.name, charity_path(charity) %></p>
+          <% end %>
+        <% else %>
           <% @visited_charities.each do |charity| %>
             <p><%= link_to charity.name, charity_path(charity) %></p>
           <% end %>
-        </ul>
+       <% end %>
       <% end %>
       </div>
 
