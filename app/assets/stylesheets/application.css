@@ -16,13 +16,17 @@
  */
 
 
+
 .charity-info {
   font-size: 17px;
   font-family: sans-serif;
 
 }
 
-
+/*#left-side {
+  border-right: 1px solid;
+}
+*/
  #mainlogo {
   height: 550px;
  }

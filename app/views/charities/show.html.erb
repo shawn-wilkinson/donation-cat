@@ -15,11 +15,11 @@
 <br>
 
 
-    <div class="ui grid">
-
-        <div class="eight wide left aligned column">
+    <div class="ui stackable grid">
+    
+      <div class="eight wide left aligned column">
         <div class="right floated">
-
+        <div id="left-side">
         <% if @errors %>
        	 <p><%= @errors  %></p>
         <% end %>
@@ -30,14 +30,14 @@
         <% else %>
           <a id="star" href="/charities/<%= @charity.to_param %>/star"><i id="star_icon" class="large yellow empty star icon"></i></a>
         <% end %>
-      <% end %></h1>
+        <% end %></h1>
 				<div class="charity-info"
            <p><%= @charity.street_address %>, <%= @charity.city %>, <%= @charity.state %>, <%= @charity.zip_code %> </p>
            </div>
 
-		  <div id="map-canvas"></div>
-
-
+		    <div id="map-canvas"></div>
+        </div>
+       
       </div>
     </div>
 

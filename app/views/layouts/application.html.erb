@@ -47,7 +47,7 @@
      }(document, 'script', 'facebook-jssdk'));
   </script>
   <div id="wrap">
-  <div class="ui blue large top fixed inverted menu">
+  <div class="ui black large top fixed inverted menu">
     <div class="ui container">
       <a class="item" href="/"><%= image_tag('dcicon.png') %></a>
       <a href="/welcome/news" class="item">Charity News</a>
@@ -69,17 +69,10 @@
           </div>
                <% if !session[:charity_id] %>
             <% if session[:user_id] %>
-            <div class="item">
-              <a href="/users/<%= current_user.slug %>">Profile</a>
-            </div>
-            <div class="item">
-            <a class="ui primary button" href="/logout">Log out</a>
-            </div>
+              <a class="item" href="/users/<%= current_user.slug %>">Profile</a> <a class="item" href="/logout">Log out</a>
             <% else %>
-            <div class="item">
-              <a class="ui primary button" href="/login">Log in</a>
-              <%= button_to "New User", new_user_path(@user), :class => "ui primary button", :method => :get  %>
-            </div>
+              <a class="item" href="/login">Log in</a>
+              <a class="item" href="/users/new">New User</a>
             <% end %>
           <% else %>
 
