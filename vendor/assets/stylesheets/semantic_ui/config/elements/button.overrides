@@ -5,11 +5,11 @@
   background-color: #517AEF;
   }
 
-  .ui.primary.button:hover {
+.ui.primary.button:hover {
   background-color: #3A58AC;
   }
 
-   .ui.primary.button:visited {
+.ui.primary.button:visited {
   background-color: #517AEF;
   }
 

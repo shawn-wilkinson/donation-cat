@@ -20,9 +20,12 @@
 }*/
 
 #search-zip-form {
-  padding-left: 5%;
-  padding-right: 10%;
+  margin: 0 auto 0 auto; 
   
+}
+
+#full-map-canvas {
+  margin: 0 auto 0 auto; 
 }
 
 
