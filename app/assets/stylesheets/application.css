@@ -15,7 +15,11 @@
  *= require_self
  */
 
-#pete {
+#community {
+  max-width: 100%;
+}
+
+.name-links {
   color: white;
 }
 
