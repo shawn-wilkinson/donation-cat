@@ -1,3 +1,12 @@
 /*******************************
          Site Overrides
 *******************************/
+.ui.primary.button {
+  background-color: #517AEF;
+  }
+
+  .ui.primary.button:hover {
+  background-color: #517AEF;
+  }
+
+ 
