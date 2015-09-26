@@ -64,12 +64,15 @@
 
 
       <% if @charity.website %>
-    		<a target="_blank" href="<%= @charity.website %>">
-          <button class="ui right labeled icon button">
-            <i class="right arrow icon"></i>
-            Visit <%= @charity.name %>
-          </button>
-        </a>
+
+        <a target="_blank" href="<%= @charity.website %>"><button class="ui primary button" id="override">
+    Visit <%= @charity.name %><i class="right arrow icon"></i>
+  </button>
+  </a>
+
+
+
+    		
       <% end %>
 
 
