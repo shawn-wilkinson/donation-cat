@@ -1,13 +1,13 @@
 #map-canvas {
   width: 25em;
   height: 23em;
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
 #full-map-canvas {
   width: 50em;
   height: 29em;
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
 #search-zip-form {
