@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Donation Cat</title>
     <%= favicon_link_tag 'pawicon.gif' %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -29,7 +31,7 @@
     <meta property="og:image"         content="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ8QHUUNeXtf6aPDTvIZQG485DTeClzpGiRTu3qYIH1V1W4VWEe" />
   </head>
   <body class="<%= params[:action] %> <%= params[:controller] %>">
-  <div class="wrapper">
+  
     <div id="fb-root"></div>
     <script>
     window.fbAsyncInit = function() {
@@ -47,16 +49,17 @@
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
   </script>
+
   <div id="wrap">
-  <div class="ui black large top fixed inverted menu">
-    <div class="ui container">
-      <a class="item" href="/"><%= image_tag('dcicon.png') %></a>
-      <a href="/welcome/news" class="item">Charity News</a>
-      <a class="item" href="/about">About</a>
+    <div class="ui black large top fixed inverted menu">
+      <div class="ui container">
+        <a class="item" href="/"><%= image_tag('dcicon.png') %></a>
+        <a href="/welcome/news" class="item">Charity News</a>
+        <a class="item" href="/about">About</a>
 
 
-     <div class="right menu">
-          <div class="item">
+      <div class="right menu">
+        <div class="item">
           <div class="ui search">
             <div class="ui icon input">
               <form  action="/search" method="GET">
@@ -67,7 +70,7 @@
               </form>
             </div>
           </div>
-          </div>
+        </div>
                <% if !session[:charity_id] %>
             <% if session[:user_id] %>
               <a class="item" href="/users/<%= current_user.slug %>">Profile</a> <a class="item" href="/logout">Log out</a>
@@ -91,7 +94,7 @@
 
 
   <!-- Page Contents -->
-  <div class="pusher">
+  <div class="pusher" id="the-middle-part">
     <div class="ui vertical masthead center aligned segment">
 
       <div class="ui container">
@@ -103,11 +106,9 @@
   </div>
 </div>
 
-<div class="push"></div>
-        </div>
-        <div class="footer">
 
-<div class="ui inverted vertical fixed footer segment">
+
+<div class="ui inverted vertical sticky footer segment">
   <div class="ui container">
     <div class="ui stackable inverted divided equal height stackable grid">
       <div class="three wide column">
@@ -181,7 +182,6 @@
      <%= javascript_include_tag 'application' %>
      <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?callback=initialize" %>
 
-</div>
 
   </body>
 </html>
