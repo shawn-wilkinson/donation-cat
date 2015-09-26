@@ -15,137 +15,92 @@
 <br>
 
 
-    <div class="ui stackable grid">
-    
-      <div class="eight wide left aligned column">
-        <div class="left floated">
-        <div id="left-side">
+<div class="ui stackable grid">
+  <div class="eight wide left aligned column">
+    <div class="left floated">
+      <div id="left-side">
         <% if @errors %>
        	 <p><%= @errors  %></p>
         <% end %>
 
-           <h1><%= @charity.name %><% if session[:user_id] %>
+        <h1><%= @charity.name %><% if session[:user_id] %>
         <% if current_user.charities.include?(@charity) %>
           <a id="star" href="/charities/<%= @charity.to_param %>/star"><i id="star_icon" class="large yellow star icon"></i></a>
         <% else %>
           <a id="star" href="/charities/<%= @charity.to_param %>/star"><i id="star_icon" class="large yellow empty star icon"></i></a>
         <% end %>
-        <% end %></h1>
+        <% end %>
+        </h1>
+
 				<div class="charity-info"
-           <p><%= @charity.street_address %>, <%= @charity.city %>, <%= @charity.state %>, <%= @charity.zip_code %> </p>
-           </div>
+          <p><%= @charity.street_address %>, <%= @charity.city %>, <%= @charity.state %>, <%= @charity.zip_code %> </p>
+        </div>
 
 		    <div id="map-canvas"></div>
-        </div>
-       
       </div>
     </div>
+  </div>
 
-
-
-
-
-
-        <div class="eight wide left aligned column">
-        <div class="right floated">
+  <div class="eight wide left aligned column">
+    <div class="right floated">
 			<br>
 			<br>
-
 			<h3>Charity Overview:</h3>
 			<div class="charity-info"
-			<p> <%= @charity.description %></p>
-
-
-
-
-
-
-
-
-
-      <% if @charity.website %>
-
-        <a target="_blank" href="<%= @charity.website %>"><button class="ui primary button" id="override">
-    Visit <%= @charity.name %><i class="right arrow icon"></i>
-  </button>
-  </a>
-
-
-
-    		
-      <% end %>
-
-
-
-
-
-</div>
+			  <p> <%= @charity.description %></p>
+        <% if @charity.website %>
+          <a target="_blank" href="<%= @charity.website %>"><button class="ui primary button" id="override">Visit <%= @charity.name %><i class="right arrow icon"></i></button></a>    		
+        <% end %>
+      </div>
 		</div>
-      </div>
-      </div>
+  </div>
+</div>
 
-   <br>
-   <br>
+<br>
+<br>
 
-
-	<% if @wishlist && @wishlist.items.count > 0 %>
+<% if @wishlist && @wishlist.items.count > 0 %>
    <div class="ui grid">
-
-        <div class="sixteen wide left aligned column">
+      <div class="sixteen wide left aligned column">
         <div class="left floated">
+          <h3>Amazon Wishlist:</h3>
+          <table class="ui very basic collapsing celled table">
+            <thead>
+              <tr><th></th>
+              <th class="six wide">Item</th>
+              <th>Price</th>
+              <th>Priority</th>
+              <th>Requested Qty</th>
+              <th>Qty Received</th>
+              </tr></thead>
 
-   <h3>Amazon Wishlist:</h3>
-        <table class="ui very basic collapsing celled table">
+            <tbody>
+					    <% @wishlist.items.each do |item|  %>
+                <tr>
+                  <td>
+                    <img src="<%= item.picture_url %>">
+                  </td>
+                  <td>
+                    <a target="_blank" href="<%= @wishlist.original_link %>"><%= item.name %></a>
+                  </td>
+                  <td>
+                    <%= item.current_price %>
+                  </td>
+                  <td>
+                    <%= item.priority %>
+                  </td>
+                  <td>
+                  	<%= item.qty_requested %>
+                  </td>
+                  <td>
+                  	<%= item.qty_received %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
 
-  <thead>
-    <tr><th></th>
-    <th class="six wide">Item</th>
-    <th>Price</th>
-    <th>Priority</th>
-    <th>Requested Qty</th>
-    <th>Qty Received</th>
-  </tr></thead>
-
-  <tbody>
-
-
-
-					<% @wishlist.items.each do |item|  %>
-
-
-    <tr>
-      <td>
-        <img src="<%= item.picture_url %>">
-      </td>
-      <td>
-        <a target="_blank" href="<%= @wishlist.original_link %>"><%= item.name %></a>
-      </td>
-      <td>
-        <%= item.current_price %>
-      </td>
-      <td>
-        <%= item.priority %>
-      </td>
-      <td>
-      	<%= item.qty_requested %>
-      </td>
-      <td>
-      	<%= item.qty_received %>
-      </td>
-    </tr>
-
-  <% end %>
-  <% end %>
-
-  </tbody>
-
-</table>
-
-
-
-
-</div>
-		</div>
+        </div>
       </div>
-
-
+    </div>
+<% end %>
