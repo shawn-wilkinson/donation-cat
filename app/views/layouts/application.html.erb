@@ -29,6 +29,7 @@
     <meta property="og:image"         content="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ8QHUUNeXtf6aPDTvIZQG485DTeClzpGiRTu3qYIH1V1W4VWEe" />
   </head>
   <body class="<%= params[:action] %> <%= params[:controller] %>">
+  <div class="wrapper">
     <div id="fb-root"></div>
     <script>
     window.fbAsyncInit = function() {
@@ -101,35 +102,38 @@
     </div>
   </div>
 </div>
-    <div class="ui inverted vertical fixed footer segment">
-        <div class="ui container">
-          <div class="ui stackable inverted divided equal height stackable grid">
-            <div class="three wide column">
-              <h4 class="ui inverted header">Charity Menu</h4>
-              <div class="ui inverted link list">
-                <% if session[:charity_id] %>
-                  <a href="/charities/<%= current_user.to_param %>/profile" class="item">Charity Dashboard</a>
-                  <a href="/charities/logout" class="item">Log Out</a>
-                <% else %>
-                  <a href="/charities/login" class="item">Charity login</a>
-                  <a href="/charities/new" class="item">Register Your Charity</a>
-                <% end %>
-                
 
-              </div>
-            </div>
-            <div class="three wide column">
-              <h4 class="ui inverted header">Extra Info</h4>
-              <div class="ui inverted link list">
-                <a href="/welcome/swipe" class="item">Powered By: <i id="piper" class="pied piper alternate icon"></i></a>
-                <a href="#" class="item"></a>
-                <a href="#" class="item"></a>
-                <a href="#" class="item"></a>
-              </div>
-            </div>
-            <div class="seven wide column">
-              <h4 class="ui inverted header">Like us on facebook!</h4>
-              <p></p>
+<div class="push"></div>
+        </div>
+        <div class="footer">
+
+<div class="ui inverted vertical fixed footer segment">
+  <div class="ui container">
+    <div class="ui stackable inverted divided equal height stackable grid">
+      <div class="three wide column">
+        <h4 class="ui inverted header">Charity Menu</h4>
+        <div class="ui inverted link list">
+          <% if session[:charity_id] %>
+            <a href="/charities/<%= current_user.to_param %>/profile" class="item">Charity Dashboard</a>
+            <a href="/charities/logout" class="item">Log Out</a>
+          <% else %>
+            <a href="/charities/login" class="item">Charity login</a>
+            <a href="/charities/new" class="item">Register Your Charity</a>
+          <% end %>
+        </div>
+      </div>
+      <div class="three wide column">
+        <h4 class="ui inverted header">Extra Info</h4>
+        <div class="ui inverted link list">
+          <a href="/welcome/swipe" class="item">Powered By: <i id="piper" class="pied piper alternate icon"></i></a>
+          <a href="#" class="item"></a>
+          <a href="#" class="item"></a>
+          <a href="#" class="item"></a>
+        </div>
+      </div>
+      <div class="seven wide column">
+        <h4 class="ui inverted header">Like us on facebook!</h4>
+        <p></p>
 
               <?php
               /**
@@ -176,6 +180,8 @@
     </div>
      <%= javascript_include_tag 'application' %>
      <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?callback=initialize" %>
+
+</div>
 
   </body>
 </html>
