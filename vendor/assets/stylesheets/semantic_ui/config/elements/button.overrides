@@ -1,3 +1,25 @@
 /*******************************
          Site Overrides
 *******************************/
+
+
+.ui.primary.buttons .button,
+.ui.primary.button {
+  background-color: #517AEF;
+  color: #ffffff;
+  text-shadow: none;
+  background-image: none;
+}
+
+.ui.primary.buttons .button:hover,
+.ui.primary.button:hover {
+  background-color: #3A58AC;
+  color: #ffffff;
+  text-shadow: none;
+}
+.ui.primary.buttons .button:focus,
+.ui.primary.button:focus {
+  background-color: #3A58AC;
+  color: #ffffff;
+  text-shadow: none;
+}

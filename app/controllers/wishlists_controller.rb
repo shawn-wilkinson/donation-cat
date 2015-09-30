@@ -21,6 +21,8 @@ class WishlistsController < ApplicationController
 
 	def create
 		@charity = Charity.find_by(slug: params[:charity_id])
+		old_wishlist = @charity.wishlists.last
+		old_wishlist.destroy if old_wishlist
 		@wishlist = @charity.wishlists.new(wishlist_params)
 
 		if @wishlist.save

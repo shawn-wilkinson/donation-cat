@@ -63,7 +63,7 @@ function bindInfoWindow(marker, map, infowindow, html){
 }
 
 function generateFullMap(charities){
-  var latlngCenter = new google.maps.LatLng(40.4424, -93.4447);
+  var latlngCenter = new google.maps.LatLng(40.4424, -96.4447);
   var myOptions = {
                     zoom: 4,
                     center: latlngCenter,

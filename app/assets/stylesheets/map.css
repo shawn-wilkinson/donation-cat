@@ -1,12 +1,12 @@
 #map-canvas {
-  width: 30em;
-  height: 30em;
+  width: 25em;
+  height: 23em;
   border: 1px solid black;
 }
 
 #full-map-canvas {
-  width: 75em;
-  height: 55em;
+  width: 50em;
+  height: 29em;
   border: 1px solid black;
 }
 

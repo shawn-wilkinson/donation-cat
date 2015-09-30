@@ -1,3 +1,10 @@
 /*******************************
          Site Overrides
 *******************************/
+.ui.small.left.floated.image {
+	max-width: 100%;
+}
+
+.ui.small.right.floated.image {
+	max-width: 100%;
+}
